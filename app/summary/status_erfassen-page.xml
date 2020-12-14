@@ -1,0 +1,5 @@
+<Page id="slide-content" class="page" navigatingTo="onNavigatingTo" actionBarHidden="true" marginTop="30" navigatingFrom="onNavigatingFrom" loaded="onLoaded" unloaded="onUnloaded" xmlns="http://schemas.nativescript.org/tns.xsd">
+	<GridLayout row="0" rows="*">
+		<Label class="opensans-semi-bold carousel-loading" text="Loading..." textWrap="true"></Label>
+	</GridLayout>
+</Page>

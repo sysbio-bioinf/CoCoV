@@ -1,0 +1,10 @@
+<Page class="page my-page" navigatingTo="onNavigatingTo" loaded="onLoaded" actionBarHidden="true" xmlns="http://schemas.nativescript.org/tns.xsd">
+<GridLayout rows="*,*,auto" cols="*">
+    <ScrollView row="0" rowSpan="2">
+      <WebView id="agreementTextField" src="https://cubi.medizin.uni-ulm.de" ></WebView>
+    </ScrollView>
+    <ActivityIndicator id="acitivityIndicator" row="1" busy="{{ isBusy }}" ></ActivityIndicator>
+    <Button row="2" id="sendAgreement" text="{{ sendAgreementText }}" class="my-button-confirm"  tap="sendAgreement" ></Button>
+ </GridLayout>
+</Page>
+

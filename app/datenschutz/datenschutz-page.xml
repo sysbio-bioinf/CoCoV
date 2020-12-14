@@ -1,0 +1,59 @@
+<Page class="page" navigatingTo="onNavigatingTo" loaded="onLoaded" xmlns="http://schemas.nativescript.org/tns.xsd" >
+<ActionBar title="{{ dataSecurityPageTitle }}">
+  <NavigationButton text="{{backButtonText}}" android.systemIcon="ic_menu_back" tap="backToSettings"></NavigationButton>
+</ActionBar>
+<ScrollView>
+    <StackLayout class="text-container">
+        <Label class="h1" text="Allgemeines" textWrap="true">></Label>
+        <Label class="h3" text="1. Die NEMO App richtet sich an Patienten und Patientinnen (im nachfolgenden Nutzer/innen), die sich in einer ambulanten onkologischen Therapie befinden. &#xA;" textWrap="True"></Label>
+        <Label class="h3" text="2. Die Installation und Einstellungen der App sollte nur in Absprache mit Ihrem/Ihrer behandelden Arzt/Ärztin vorgenommen werden. &#xA;" textWrap="True" ></Label>
+        <Label class="h3" text="3. Die NEMO App ersetzt nicht den Besuch bei Ihrem/Ihrer Arzt/Ärztin. &#xA;" textWrap="True"></Label>
+        <Label class="h1" text="Datenschutz" textWrap="true">></Label>
+        <Label class="h3" text="Der Schutz Ihrer Privatsphäre ist uns ein wichtiges Anliegen. Aus diesem Grund sind Transparenz bezüglich der Verarbeitung Ihrer personenbezogenen Daten wie auch der Schutz Ihrer Daten uns besonders wichtig.
+Mit dieser Erklärung geben wir Ihnen einen Überblick, wie bei der Nutzung unserer App Daten zu Ihrer Person erhoben und verarbeitet werden.
+&#xA;" textWrap="True"></Label>
+        <Label class="h2" text="Verantwortlicher für die Verarbeitung" textWrap="True" ></Label>
+        <Label class="h3" text="Institut für Medizinische Systembiologie" textWrap="True"></Label>
+        <Label class="h3" text="Albert-Einstein-Allee 11" textWrap="True"></Label>
+        <Label class="h3" text="D-89081 Ulm" textWrap="True"></Label>
+        <Label class="h3" text="Tel. 0731/500-24501" textWrap="True"></Label>
+        <Label class="h3" text="E-Mail: nemo@&shy;lists.uni-ulm.de &#xA;" textWrap="True"></Label>
+        <Label class="h2" text="Datenschutz&shy;beauftragter" textWrap="True"></Label>
+        <Label class="h3" text="Universitätsklinikum Ulm, Datenschutzbeauftragter" textWrap="True"></Label>
+        <Label class="h3" text="Albert-Einstein-Allee 11" textWrap="True"></Label>
+        <Label class="h3" text="D-89081 Ulm" textWrap="True"></Label>
+        <Label class="h3" text="Tel. 0731/500-69290" textWrap="True"></Label>
+        <Label class="h3" text="E-Mail: dsb.ukl@&shy;uniklinik-ulm.de oder datenschutz@&shy;uniklinik-ulm.de &#xA;" textWrap="True"></Label>
+        <Label class="h2" text="Was sind personenbezogene Daten?" textWrap="True"></Label>
+        <Label class="h3" text="Personenbezogene Daten sind alle Informationen, die sich auf eine identifizierbare natürliche Person beziehen. Entscheidend ist also, ob durch die erhobenen Daten ein Personenbezug hergestellt werden kann. Darunter fallen Informationen wie z.B. Ihr Name, Ihre Anschrift, Ihre Telefonnummer, Mailadresse. Informationen, die nicht direkt mit Ihrer wirklichen Identität in Verbindung gebracht werden – wie z.B. Schmerzgrad oder Angaben zur Nahrungsaufnahme – sind keine personenbezogenen Daten.  &#xA;" textWrap="True"></Label>
+        <Label class="h2" text="Wie erheben und verarbeiten wir Daten zu Ihrer Person?" textWrap="True"></Label>
+        <Label class="h3" text="Generell haben Sie selbst die volle Kontrolle über Ihre personenbezogenen Daten und können selbst entscheiden, ob und wann Sie die Daten an Ihre/n behandelnde/n Ärztin/Arzt übertragen. Zur Unterstützung Ihrer Therapie können Sie die NEMO App als Therapietagebuch führen und somit Ihre/n Ärztin/Arzt über die Zeit informieren, die zwischen Ihren Besuchen liegt. Im Rahmen der NEMO App werden hierfür Daten zu Ihrem Allgemeinbefinden, Ihrem Stuhlgang, Übelkeit, Schmerzen, Sensibilitätsstörungen, Ihrer Nahrungsaufnahme, Ihrer Bewegung, Ihrer Bedarfsmedikation und Ihrem Gewicht erhoben sowie das entsprechende Datum zu diesem Eintrag. Zusätzlich können Sie (müssen es aber nicht) Mitteilungen verfassen, um Besonderheiten des Tages dem/der Arzt/Ärztin mitzuteilen (z.B. vergessene Tabletteneinnahmen oder Stress). &#xA; Die Speicherung dieser Daten erfolgt zunächst nur auf Ihrem mobilen Endgerät im App-Verzeichnis. Dadurch werden gespeicherte Daten, die nicht bereits an den/die Arzt/Ärztin übermittelt wurden mit dem Deinstallieren der App gelöscht.
+Sofern Sie der Übermittlung Ihrer Daten an den/die Arzt/Ärztin zustimmen, können Sie auf Ihrem mobilen Endgerät einen QR-Code erzeugen, der von dem/der Arzt/Ärztin gescannt werden kann. Durch alleiniges Generieren dieses QR-Codes werden allerdings noch keine Daten übertragen. Das ist erst möglich durch Scannen des QR-Codes. Mittels dieser Übertragungsmethode sind Ihre Daten auch während der Übertragung vor Dritten geschützt. Die übertragenen Daten werden nur auf dem Computer Ihres/Ihrer behandelnden Arzt/Ärztin gespeichert und dienen zur Optimierung Ihrer Therapie.
+" textWrap="True"></Label>
+        <Label class="h2" text="Wie nutzen wir Daten zu Ihrer Person, wie geben wir sie weiter?" textWrap="True"></Label>
+        <Label class="h3" text="Mittels QR-Code übertragene Daten bezüglich Therapienebenwirkungen werden auf dem Computer Ihres/Ihrer behandelnden Arzt/Ärztin gespeichert und dienen der Optimierung Ihrer Therapie. Die Preisgabe dieser Daten seitens des Nutzers erfolgt ausdrücklich auf freiwilliger Basis.
+Sollten Ihre Daten im Rahmen einer wissenschaftlichen Studie verwendet werden, erfolgt die Speicherung, Auswertung und Weitergabe dieser studienbezogenen Daten nur in pseudonymisierter Form unter Berücksichtigung aller gesetzlichen Bestimmungen. Voraussetzung für eine wissenschaftlich Verarbeitung Ihrer Daten ist eine zuvor von Ihnen erteilte freiwillige und schriftliche Einwilligung. Diese Einwilligung können Sie jederzeit ohne Angabe von Gründen widerrufen. In diesem Fall haben Sie das Recht, die Löschung aller Ihrer bis dahin erhobenen Daten zu verlangen. Dieser eventuelle Widerruf hat keinerlei Auswirkungen auf Ihre weitere medizinische Behandlung.
+Ein Verkauf oder sonstige Übermittlung Ihrer personenbezogenen Daten an Dritte erfolgt nicht. &#xA;
+" textWrap="True"></Label>
+        <Label class="h2" text="Wie lange bleiben Ihre Daten gespeichert?" textWrap="True"></Label>
+        <Label class="h3" text="Zunächst werden alle durch die App erhobenen Daten lokal auf Ihrem mobilen Endgerät im App-Verzeichnis gespeichert. Dadurch werden gespeicherte Daten, die nicht bereits an den/die Arzt/Ärztin übermittelt wurden mit dem Deinstallieren der App gelöscht.
+Daten die im Rahmen einer Studie übermittelt wurden, werden noch 10 Jahre nach Abschluss der Studie gespeichert und anschließend gelöscht. 
+Sollten Sie nicht mehr wünschen, dass wir Ihre Daten nutzen, so kommen wir dieser Bitte umgehend nach. Bitte wenden Sie sich in diesem Fall an den Verantwortlichen für die Verarbeitung. &#xA;
+" textWrap="True"></Label>
+        <Label class="h2" text="Wann werden Ihre Daten gelöscht?" textWrap="True"></Label>
+        <Label class="h3" text="Die Löschung der gespeicherten personenbezogenen Daten erfolgt, wenn Sie ihre Einwilligung zur Speicherung widerrufen, wenn die Kenntnis der Daten zur Erfüllung des mit der Speicherung verfolgten Zwecks nicht mehr erforderlich ist oder wenn die Speicherung aus sonstigen gesetzlichen Gründen unzulässig ist.
+Sollten Sie noch keine der erhobenen Daten mittels QR-Code an Ihre/Ihren behandelnde/n Ärztin/Arzt übertragen haben, werden alle auf Ihrem Smartphone gespeicherten Daten durch Deinstallieren der App gelöscht. &#xA;" textWrap="True"></Label>
+        <Label class="h2" text="Was tun wir für die Sicherheit der Verarbeitung?" textWrap="True"></Label>
+        <Label class="h3" text="Wir treffen alle notwendigen technischen und organisatorischen Sicherheitsmaßnahmen, um Ihre personenbezogenen Daten vor Verlust und Missbrauch zu schützen. So werden Ihre Daten in einer sicheren Betriebsumgebung gespeichert, die der Öffentlichkeit nicht zugänglich ist. Ihre auf dem Smartphone erhobenen Daten werden zur Übermittlung an Ihre/n Ärztin/Arzt in einen QR-Code gepackt, dessen Information nur über direktes Scannen entschlüsselt werden kann. Dadurch können die Daten, die Sie an Ihre/n behandelnde/n Ärztin/Arzt übermitteln, nicht von Dritten mitgelesen werden. &#xA;" textWrap="True"></Label>
+        <Label class="h2" text="Rechtsgrundlagen für die Datenverarbeitung" textWrap="True"></Label>
+        <Label class="h3" text="Soweit wir für Verarbeitungsvorgänge personenbezogener Daten eine Einwilligung der betroffenen Person einholen, dient Art. 6 Abs. 1a EU-Datenschutz-Grundverordnung (DS-GVO) als Rechtsgrundlage. &#xA;" textWrap="True"></Label>
+        <Label class="h2" text="Das sind Ihre Datenschutzrechte" textWrap="True"></Label>
+        <Label class="h3" text="Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und mögliche Empfänger und den Zweck der Datenverarbeitung (Art. 15 DSGVO) und ggf. ein Recht auf Berichtigung unrichtiger Daten (Art. 16 DSGVO), Löschung dieser Daten (Art. 17 DSGVO) das Recht auf Einschränkung der Verarbeitung nach Art. 18 DSGVO, auf Widerspruch (Art. 21 DSGVO) sowie das Recht auf Datenübertragbarkeit von Ihnen bereitgestellter Daten nach Art. 20 DSGVO. Beim Auskunftsrecht und beim Löschungsrecht gelten die Einschränkungen nach §§34 und 35 BDSG.
+Darüber hinaus steht Ihnen im Falle datenschutzrechtlicher Verstöße ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu (Art. 77 DSGVO i.V.m. §19 BDSG). Zuständige Aufsichtsbehörde in datenschutzrechtlichen Fragen ist der Landesdatenschutzbeauftragte für den Datenschutz und die Informationsfreiheit in Baden-Württemberg, Postfach 10 32 99, 70025 Stuttgart, 0711/615541-0, poststelle@&shy;lfdi.bwl.de.
+ &#xA;" textWrap="True"></Label>
+        <Label class="h2" text="Wie können Sie gegebene Einwilligungen widerrufen?" textWrap="True"></Label>
+        <Label class="h3" text="Sie können Ihre Einwilligung zur Verwendung Ihrer Daten jederzeit und ohne Angaben von Gründen widerrufen. Im Falle eines Widerrufs können Sie entscheiden, ob Ihrer erhobenen Daten gelöscht werden sollen oder in anonymisierter Form weiterverarbeitet werden dürfen. Dazu reicht eine formlose Mitteilung per E-Mail an uns. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt. Ein solcher etwaiger Widerruf hat keinerlei Auswirkungen auf Ihre weitere medizinische Behandlung. &#xA;" textWrap="True"></Label>   
+    </StackLayout>
+    </ScrollView>
+
+</Page>

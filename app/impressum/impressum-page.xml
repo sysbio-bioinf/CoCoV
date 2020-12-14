@@ -1,0 +1,48 @@
+<Page class="page" navigatingTo="onNavigatingTo" loaded="onLoaded" xmlns="http://schemas.nativescript.org/tns.xsd">
+<ActionBar title="Impressum">
+  <NavigationButton  text="Zurück" android.systemIcon="ic_menu_back" tap="backToSettings"></NavigationButton>
+</ActionBar>
+<ScrollView>
+    <StackLayout class="text-container">    
+        <Label class="h1" text="Herausgeber" textWrap="true"></Label>
+            <Label class="h3" text="Universität Ulm" textWrap="true"></Label>
+            <Label class="h3" text="D-89069 Ulm" textWrap="true"></Label>
+            <Label class="h3" text="Tel.: +49(0)731/50-10" textWrap="true"></Label>
+            <Label class="h3" text="Fax: +49(0)731/50-22038" textWrap="true"></Label>
+            <Label class="h3" text="Umsatzsteuer&shy;identifikations&shy;nummer DE173703203 &#xA;" textWrap="true"></Label>
+        <Label class="h1" text="Vertretung" textWrap="true"></Label>
+                <Label class="h3" text="Die Universität Ulm ist eine Körperschaft des öffentlichen Rechts. Sie wird durch den Präsidenten Prof. Dr.-Ing. Michael Weber oder durch den Kanzler Dieter Kaufmann vertreten. &#xA;" textWrap="true"></Label>
+            <Label class="h2" text="Adresse des Präsidenten" textWrap="true"></Label>
+                <Label class="h3" text="Universität Ulm" textWrap="true"></Label>
+                <Label class="h3" text="Präsident Prof. Dr.-Ing. Michael Weber" textWrap="true"></Label>
+                <Label class="h3" text="Helmholtzstr. 16" textWrap="true"></Label>
+                <Label class="h3" text="89081 Ulm &#xA;" textWrap="true"></Label>
+             <Label class="h2" text="Adresse des Kanzlers" textWrap="true"></Label>
+                <Label class="h3" text="Universität Ulm" textWrap="true"></Label>
+                <Label class="h3" text="Kanzler Dieter Kaufmann" textWrap="true"></Label>
+                <Label class="h3" text="Helmholtzstr. 16" textWrap="true"></Label>
+                <Label class="h3" text="89081 Ulm &#xA;" textWrap="true"></Label>   
+        <Label class="h1" text="Copyright" textWrap="true"></Label>
+                <Label class="h3" text="(C) Universität Ulm" textWrap="true"></Label>
+                <Label class="h3" text="Alle in dieser App veröffentlichten Inhalte (Layout, Texte, Bilder, Grafiken usw.) unterliegen dem Urheberrecht. Jede vom Urheberrechtsgesetz nicht zugelassene Verwertung bedarf vorheriger ausdrücklicher, schriflicher Zustimmung des Instituts für Medizinische Systembiologie. Dies gilt insbesondere für Vervielfältigung, Bearbeitung, Übersetzung, Einspeicherung, Verarbeitung bzw. Wiedergabe von Inhalten in Datenbanken oder anderen elektronischen Medien und Systemen." textWrap="true"></Label>
+                <Label class="h3" text="Downloads aus den App-Stores für den privaten, wissenschaftlichen und nicht kommerziellen Gebrauch sind gestattet." textWrap="true"></Label>
+                <Label class="h3" text="Das Institut für Medizinische Systembiologie erlaubt ausdrücklich und begrüßt das Zitieren der App, sowie das Setzen von Links auf ihre Website." textWrap="true"></Label>
+                <Label class="h3" text="Das Institut für Medizinische Systembiologie ist bestrebt, in der App die Urheberrechte der verwendeten Grafiken, Tondokumente und Texte zu beachten und selbt erstellte Grafiken, Tondokumente und Texte zu nutzen oder auf lizenzfreie Grafiken, Tondokumente und Texte zurückzugreifen." textWrap="true"></Label>
+                <Label class="h3" text="Alle innerhalb der App genannten und ggf. durch Dritte geschützten Marken- und Warenzeichen unterliegen uneingeschränkt den Bestimmungen des jeweils gültigen Kennzeichenrechts und den Besitzrechten der jeweiligen eingetragenen Eigentümer. Allein aufgrund der bloßen Nennung ist nicht der Schluss zu ziehen, dass Markenzeichen nicht durch Rechte Dritter geschützt sind. &#xA;" textWrap="true"></Label>
+    <Label class="h1" text="Haf&shy;tungs&shy;aus&shy;schluss" textWrap="true"></Label>
+                <Label class="h3" text="1. Die durch die NEMO App bereitgestellten Abfragen wurden sorgfältig und nach bestem Wissen erstellt. Die NEMO App übernimmt jedoch kein Gewähr für die Richtigkeit, Vollständigkeit, Korrektheit, Qualität, Aktualität oder Fehlerfreiheit der bereitgestellten Inhalte. Es obliegt dem/der Nutzer/in die angegeben Daten auf ihre Richtigkeit zu überprüfen. &#xA;" textWrap="True"></Label>
+                <Label class="h3" text="2. Die NEMO App ist ein Serviceangebot und übernimmt keine Haftung bei auftretenden technischen oder sonstigen Schäden, sowie bei Ausfall der App. &#xA;" textWrap="True"></Label>
+    <Label class="h1" text="Lei&shy;stungs&shy;umfang" textWrap="true"></Label>
+                <Label class="h3" text="Die NEMO App bietet dem/der Nutzer/in Unterstützung während der ambulanten onkologischen Therapie. Die NEMO App soll als Therapietagebuch den/die Arzt/Ärztin bei der weiteren Planung Ihrer Therapie unterstützen. &#xA;" textWrap="True"></Label>
+    <Label class="h1" text="Konzeption, Realisierung und Gestaltung" textWrap="true"></Label>
+                <Label class="h3" text="Institut für Medizinische Systembiologie" textWrap="true"></Label>
+                <Label class="h3" text="Universität Ulm" textWrap="true"></Label>
+                <Label class="h3" text="Albert-Einstein-Allee 11" textWrap="true"></Label>
+                <Label class="h3" text="D-89081 Ulm" textWrap="true"></Label>
+                <Label class="h3" text="Tel.: +49(0)731/500-24501" textWrap="true"></Label>
+                <Label class="h3" text="Fax: +49(0)731/500-24502" textWrap="true"></Label>
+                <Label class="h3" text="E-Mail: nemo@&shy;lists.uni-ulm.de" textWrap="true"></Label>
+    </StackLayout>
+    </ScrollView>
+</Page>
+

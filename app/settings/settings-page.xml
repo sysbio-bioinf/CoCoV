@@ -1,0 +1,32 @@
+<Page navigatingTo="onNavigatingTo" actionBarHidden="true" class="my-page" loaded="onLoaded" xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ScrollView>
+        <GridLayout columns="*,auto" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto" class="settings-container">
+            <GridLayout row="1" colSpan="2" columns="*,auto" rows="auto, auto,auto" class="settings-subcontainer">
+                <Label row="0" col="0" text="{{ ageLabelText }}" fontSize="{{ mySizeSmall }}" textWrap="true" class="question" />
+                <ListPicker row="1" items = "{{ ageItems }}" selectedIndex = "{{ ageIndex }}" selectedValue = "{{ ageSelected }}" id="agePicker"  height="{{ ageHeight }}" />
+            </GridLayout>
+            <GridLayout row="3" colSpan="2" columns="*,auto" rows="auto, auto,auto" class="settings-subcontainer">
+                <Label row="0" col="0" text="{{ sexLabelText }}" fontSize="{{ mySizeSmall }}" textWrap="true" class="question" />
+                <ListPicker row="1" items = "{{ sexPickerItems }}" selectedIndex = "{{ sexIndex }}" selectedValue = "{{ sexSelected }}" id="sexPicker"  height="{{ ageHeight }}" />
+            </GridLayout>
+             <GridLayout row="5" colSpan="2" columns="*,auto" rows="auto, auto,auto" class="settings-subcontainer">
+                <Label row="0" col="0" text="{{ vaccineLabelText }}" fontSize="{{ mySizeSmall }}" textWrap="true" class="question" />
+                <ListPicker row="1" items = "{{ vaccinePickerItems }}" selectedIndex = "{{ vaccineIndex }}" selectedValue = "{{ vaccineSelected }}" id="vaccinePicker"  height="{{ ageHeight }}" />
+            </GridLayout>
+            <GridLayout row="7" colSpan="2" columns="*,auto" rows="auto, auto" class="settings-subcontainer">
+                <Label row="0" col="0" text="{{ sendNotificationsOptionLabel }}" fontSize="{{ mySizeSmall }}" textWrap="true" class="question" />
+                <Switch row="0" col="1" id="sendNotifications" checked="{{ sendNotificationsOption }}" isEnabled="true" horizontalAlignment="center" color="{{ sendNotificationColor }}" class="my-switch" />
+                <!--
+                <Label row="1" col="0" colSpan="2" text="{{ helpSendNotificationsOptionLabel }}" fontSize="{{ mySizeMessageSmall }}" textWrap="true" class="help help-settings help-notification" />
+                -->
+            </GridLayout>
+            <Button row="8" text="{{ storeSettingsLabel }}" class="my-button-confirm" tap="onStoreSettings" ></Button>
+            <GridLayout row="9" colSpan="2" columns="*,auto" rows="auto, auto, auto" class="settings-subcontainer">
+                <Label row="0" col="0" text="{{ imprintPageTitle }}" fontSize="{{ mySizeSmall }}" textWrap="true" class="settings-link" horizontalAlignment="left" tap="{{openImprint}}" />
+                <Label row="1" col="0" text="{{ dataSecurityPageTitle }}" fontSize="{{ mySizeSmall }}" textWrap="true" class="settings-link" horizontalAlignment="left" tap="{{openDataSecurity}}" />
+            </GridLayout>
+            <Button id="removeDataBtn" row="11" text="{{ removeAccountLabel }}" class="my-button-remove" tap="onRemoveData" ></Button>
+        </GridLayout>
+    </ScrollView>
+</Page>

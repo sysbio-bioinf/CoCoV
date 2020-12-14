@@ -1,0 +1,32 @@
+{
+  "description": "NativeScript Application",
+  "license": "SEE LICENSE IN <your-license-filename>",
+  "repository": "<fill-your-repository-here>",
+  "scripts": {
+    "lint": "eslint \"app/**/*.js\""
+  },
+  "dependencies": {
+    "@nativescript/core": "~7.0.0",
+    "@nativescript/local-notifications": "^5.1.0",
+    "@nativescript/theme": "~2.2.1",
+    "buffer": "^6.0.3",
+    "loki-nativescript-adapter": "^1.0.3",
+    "lokijs": "^1.5.11",
+    "nativescript-audio": "^6.2.0",
+    "nativescript-bcryptjs": "^1.0.1",
+    "nativescript-https": "^2.2.2",
+    "nativescript-qr-generator": "^2.0.0",
+    "nativescript-theme-core": "^2.0.24",
+    "rxjs": "^6.6.3"
+  },
+  "devDependencies": {
+    "@nativescript/android": "7.0.1",
+    "@nativescript/ios": "7.0.6",
+    "@nativescript/webpack": "~3.0.0",
+    "eslint": "~5.8.0",
+    "node-sass": "^4.7.1"
+  },
+  "gitHead": "fa98f785df3fba482e5e2a0c76f4be1fa6dc7a14",
+  "readme": "NativeScript Application",
+  "main": "app.js"
+}

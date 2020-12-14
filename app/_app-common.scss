@@ -1,0 +1,355 @@
+
+@import "~@nativescript/theme/core.compat";
+@import "~@nativescript/theme/blue.compat";
+// Place any CSS rules you want to apply on both iOS and Android here.
+// This is where the vast majority of your CSS code goes.
+
+// Font icon class
+.fab {
+    font-family: "Font Awesome 5 Brands", "fa-brands-400";
+    font-weight: 400;
+}
+
+.fas {
+    font-family: "Font Awesome 5 Free", "fa-solid-900";
+    font-weight: 900;
+}
+
+.far {
+    font-family: "Font Awesome 5 Free", "fa-regular-400";
+    font-weight: 400;
+}
+
+// Custom tabstrip item class
+.navigation__item {
+    &:active,
+    &:active Label {
+        @include colorize($contrasted-color: complementary background 20% 0%);
+    }
+}
+.fa {
+    font-family: "FontAwesome";
+ }
+
+ .icon{
+    font-family: 'IcoMoon-Free';
+}
+// Common page class
+.page__content {
+    &-icon,
+    &-placeholder {
+        color: const(grey);
+        font-size: 20;
+        vertical-align: center;
+        horizontal-align: center;
+        height: auto;
+    }
+
+    &-icon {
+        font-size: 72;
+        vertical-align: top;
+        margin-top: 20%;
+        height: auto;
+    }
+}
+
+//Question
+.question {
+    font-family: Arial, Helvetica, sans-serif;
+    vertical-align: middle;
+    color: rgb(30,30,30);
+    font-size: 35;
+    hyphens: auto;
+   // height: 25%;
+}
+//Labels for summary tab
+.summary-header {
+    font-family: Arial, Helvetica, sans-serif;
+    vertical-align: middle;
+    color:black;
+    font-size: 25;
+    //font-weight: bold;
+    // height: 25%;
+}
+.summary {
+    font-family: Arial, Helvetica, sans-serif;
+    vertical-align: middle;
+    color:black;
+    font-size: 25;
+    // height: 25%;
+}
+
+// Button
+ .my-button-grad0 {
+    background-color: rgb(169,255,76);
+    border-radius: 5;
+    color: black;
+    font-size: 35;
+    margin-top: 10;
+    
+ }
+
+ .my-button-grad1 {
+    background-color: yellow;
+    border-radius: 5;
+    color: black;
+    font-size: 35;
+    margin-top: 10;
+    
+ }
+
+.my-button-grad2 {
+    background-color: orange;
+    border-radius: 5;
+    color: black;
+    font-size: 35;
+    margin-top: 10;
+    
+}
+
+ .my-button-grad3 {
+     background-color: rgb(255,163,166);
+     border-radius: 5;
+     color: black;
+     font-size: 35;
+     margin-top: 10;
+    
+ }
+
+ .my-button-grad4 {
+    background-color: rgb(255, 88, 94);
+    border-radius: 5;
+    color: black;
+    font-size: 35;
+    margin-top: 10;
+   
+}
+
+ .my-button-gradX {
+    background-color: rgb(200,200,200);
+    border-radius: 5;
+    color: black;
+    font-size: 35;
+    margin-top: 10;
+}
+
+.my-button-gradN0 {
+    background-color: rgb(160,215,255);
+    border-radius: 5;
+    color: black;
+    font-size: 35;
+    margin-top: 10;
+    
+}
+
+.my-button-gradN1 {
+    background-color: rgb(160,215,255);    //rgb(105,193,255);
+    border-radius: 5;
+    color: black;
+    font-size: 35;
+    margin-top: 10;
+    
+}
+
+ .my-button-grad0:active, .my-button-grad1:active, .my-button-grad2:active, .my-button-grad3:active, .my-button-grad4:active, .my-button-gradX:active {
+    background-color: lightslategray;
+    color: white;
+    margin-top: 10;   
+}
+.my-button-grad0, .my-button-grad1 .my-button-grad2, .my-button-grad3, .my-button-grad4, .my-button-gradX:active, .my-button-gradN0, .my-button-gradN1 {
+    padding-top: 4;
+    padding-bottom: 5;
+    padding-left: 10;
+    padding-right: 10;
+   
+}
+
+ .my-button-disabled {
+    background-color: rgb(199, 199, 199);
+    border-radius: 5;
+    color: black;
+    margin-top: 10;
+    
+ }
+ 
+ .my-button-summary {
+     text-align: center;
+     margin-top: 10;
+  }
+
+.my-button-hidden {
+    visibility: hidden;
+    margin-top: 10;
+}
+
+.my-button-selected {
+        border: 2px solid rgb(100,100,100);
+        margin-top: 10;
+}
+
+.my-button-diary {
+    z-index: 0;
+    color: white;
+    background-color: rgb(58,83,255);
+    font-size: 70;
+    margin-bottom: 8;
+    border-radius: 5;
+    padding-left: 30;
+    padding-right: 30;
+    margin-top: 10;
+}
+
+.my-button-medication {
+    z-index: 0;
+    color: white;
+    background-color: rgb(58,83,255);
+    font-size:50;
+    margin-bottom: 8;
+    border-radius: 5;
+    padding-left: 30;
+    padding-right: 30;
+    padding-bottom: 30;
+    padding-top: 20;
+    
+}
+
+.my-button-confirm {
+    z-index: 0;
+    color: white;
+    background-color: rgb(58,83,255);
+    font-size:30;
+    margin-bottom: 8;
+    border-radius: 5;
+    padding-left: 30;
+    padding-right: 30;
+    padding-bottom: 30;
+    padding-top: 20;
+    
+}
+
+
+.capitalization {
+    text-transform: none;
+     
+}
+
+.btn-rounded-lg {
+    border-radius: 20;
+     
+}
+
+.my-switch {
+    margin: 10;
+    color: rgb(230,230,230);
+}
+
+.btn-primary:active {
+    background-color: lightgreen;
+    color: black;
+    margin-top: 10;
+}
+
+.my-button-primary {
+    background-color:  rgb(58,83,255);
+    padding-top: 4;
+    padding-bottom: 5;
+    padding-left: 10;
+    padding-right: 10;
+}
+
+.my-page {
+    margin-top: 34;
+}
+
+.my-input {
+    placeholder-color: rgb(160,160,160);
+}
+
+.my-input-comment {
+    border-width: 0;
+}
+
+.help {
+    color: rgb(150,150,150);
+    font-style: italic;
+}
+
+.help-home{
+    padding: 10;
+    margin-top: -40;
+}
+
+.help-settings {
+    padding-left: 10;
+}
+
+.help-tts {
+    margin-top: -10;
+}
+
+.help-notification {
+    padding-bottom: 3;
+}
+
+.settings-container {
+    padding-left: 6;
+    padding-right: 4;
+}
+
+.settings-subcontainer {
+    margin-top: 15;
+}
+.settings-id {
+    width: 120;
+    padding: 3;
+    border-radius: 0;
+    border-top-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 1;
+}
+
+.settings-voice-container {
+    padding-left: 20;
+    padding-right: 20;
+}
+
+.settings-voice {
+    height: 120;
+    margin-left: 10;
+    margin-right: 10;
+    margin-top: -10;
+}
+
+.settings-link {
+    color: blue;
+    padding: 0;
+    padding-bottom: 5;
+    font-weight: normal;
+}
+
+.qr-image {
+    width: 200;
+    height: 300;
+}
+
+.status-message {
+    color: blue;
+}
+
+.weight-separator {
+    margin-left: 10px; margin-right: 10px;
+}
+
+.weight-label {
+    margin-left: 10px;
+}
+
+.text-container {
+    border-width: 0;
+    border-color: rgb(100,100,100);
+    border-left-width: 15;
+    border-left-color: white;
+    padding-right: 4;
+}
+

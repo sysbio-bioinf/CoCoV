@@ -1,0 +1,8 @@
+<Page class="page my-page" navigatingTo="onNavigatingTo" loaded="onLoaded" actionBarHidden="true" xmlns="http://schemas.nativescript.org/tns.xsd">
+<GridLayout rows="*,auto,auto" cols="*">
+    <Label row="0" col="0" text="{{ languageLabelText }}" fontSize="{{ mySizeSmall }}" textWrap="true" class="question" />
+    <Button row="1" id="0" text="{{ langEnglText }}" class="my-button-confirm"  tap="setLanguage" ></Button>
+     <Button row="2" id="1" text="{{ langGerText }}" class="my-button-confirm"  tap="setLanguage" ></Button>
+ </GridLayout>
+</Page>
+
