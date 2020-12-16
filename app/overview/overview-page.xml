@@ -1,0 +1,9 @@
+<Page class="page my-page" navigatingTo="onNavigatingTo" marginTop="30" navigatingFrom="onNavigatingFrom" loaded="onLoaded" unloaded="onUnloaded">
+    <ActionBar title="{{ overviewViewLabel }}">
+    <NavigationButton text="{{ backButtonText }}" android.systemIcon="ic_menu_back"></NavigationButton>
+    </ActionBar>
+    <ScrollView id="summaryScrollView" class="transparent-area" height="99%">
+        <GridLayout id="overviewGrid"  rows="" cols="*" marginLeft="5" marginRight="5" class="transparent-area list-item">
+        </GridLayout>  
+    </ScrollView>
+</Page>

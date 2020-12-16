@@ -10,9 +10,10 @@ function onNavigatingTo(args) {
     const page = args.object;
     page.bindingContext = new AgreementViewModel();
     tools.activateHyphenation(args.object);
+    //load bindings
     global.guiStringsLoaded.then(function (value) {
         tools.bindGuiStrings(page.bindingContext,0,tools.getAppSetting("languageID", "number"));
-
+        //load data security statemts based on selected language
         if(tools.getAppSetting("languageID", "number") === 0){
             console.log("englisch")
             page.bindingContext.set("datasecHtml", "~/agreement/Patienteninformation_CoCoV_English.html");
@@ -21,14 +22,12 @@ function onNavigatingTo(args) {
             console.log("deutsch")
             page.bindingContext.set("datasecHtml", "~/agreement/Patienteninformation_CoCoV_German.html");
         }
-
-        console.log(page.bindingContext.get("datasecHtml"));
     });
     
 
     
     
-    //read secret as defined in file
+    //read secret and server data as defined in file
     tools.readTransmissionInfo();
 
 }
@@ -45,7 +44,7 @@ function onDrawerButtonTap(args) {
 
 /**
  * Function for software-based back button in android 
- *
+ * 
  */
 function sendAgreement(args) {
     

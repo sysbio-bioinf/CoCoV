@@ -1,15 +1,12 @@
-const app = require("tns-core-modules/application");
-const SummaryViewModel = require("./summary-view-model");
+const OverviewViewModel = require("./overview-view-model");
 const tools = require("../tools/tools.js");
-const appSettings = require("tns-core-modules/application-settings");
-const frame = require('ui/frame');
-const platformModule = require("tns-core-modules/platform");
 const database = require("../database/databaseInterface");
+const labelModule = require("tns-core-modules/ui/label");
 //store loaded data globally
 var dbEntries;
 
-
 function onLoaded(args) {
+	const { GridLayout, GridUnitType, ItemSpec } = require("ui/layouts/grid-layout");
 	const page = args.object;
 	
 	var vm = page.bindingContext;
@@ -21,17 +18,70 @@ function onLoaded(args) {
 	dbEntries = database.requestData(0);
 	// use data to build view
     dbEntries.then(function (db) {
-		initSummary(page, vm,db.data[vm.currentSlideNum]);	
+		//screen database for all entries which are non-zero to find all adverse events occuring over time
+		var withEffect = hasEffect(db);
+		console.log("has effect : " + withEffect);
+		//add occured adverse events to summary list
+		var label;
+		var txt;
+		var container = page.getViewById("overviewGrid");
+		withEffect.forEach((effect,index,arry) =>
+		{
+			container.addRow(new ItemSpec(index, GridUnitType.STAR));
+			//create label for each adverse event occured
+			label = new labelModule.Label();
+			label.className = "my-overviewTest list-item";
+			//position new label
+			GridLayout.setColumn(label, 0);
+			GridLayout.setRow(label, index);
+			//adapt label text
+			txt = global.guiStrings[1][effect + "Short"];
+			txt = txt.slice(0,txt.lastIndexOf(":"));
+			label.text = txt;
+			//add label to gridlayout
+			container.addChild(label);
+		});
+
     });
 	
 	
 }
 
 /**
+ * Helper function to determine if a value is numeric
+ * @param {*} n 
+ */
+function isNumeric(n) {
+	return !isNaN(parseFloat(n)) && isFinite(n);
+  }
+
+/**
+ * Search if entry is has positive entry (positive > 0)
+ */
+function hasEffect(collection)
+{
+	var attrs = [];
+	var col;
+	//iterate through database and check for keys which occured at least one time (event > 0)         
+	for(idx = 0; idx < collection.data.length; idx++){
+		//get item (one time point)
+		col = collection.data[idx];
+		//iterate over keys
+		Object.keys(col).forEach(function(key) {
+			if(!key.includes("$") && isNumeric(col[key]) && (col[key] != 0) && !attrs.includes(key)) //filter keys with $ to remove database-specific attributes
+					attrs.push(key);			
+		});
+	}
+    return attrs;
+}
+
+/**
  * Undo overwritting of android back button
  * @param {} args 
  */
-function onUnloaded(args) {
+function onUnloaded(args) 
+{
+
 	
 }
 
@@ -73,7 +123,7 @@ function onBack(args)
 
 function onNavigatingTo(args) {
 	const page = args.object;
-	page.bindingContext = new SummaryViewModel();
+	page.bindingContext = new OverviewViewModel();
 	var vm = args.object.bindingContext;
 	// get all entries from database
 	dbEntries = database.requestData(0);
@@ -81,44 +131,8 @@ function onNavigatingTo(args) {
 	global.guiStringsLoaded.then(function(value) {
 		console.log("In here: " + true);
 		tools.bindGuiStrings(vm,0,tools.getAppSetting("languageID", "number"));
-	
 	});
-	dbEntries.then(function (db) {
-		vm.length = db.data.length;
-		initSummary(page, vm,db.data[vm.currentSlideNum]);
-});
-
 }
-
-/**
- * Initialize GridLayout which summarizes answers in the last tab
- * 
- */
-function initSummary(page, vm, data) {
-
-	console.log("DEBUG: Summary initiated");
-	//extract grid to fill :
-	var hRec = data;
-	var idx = require("../status_erfassen/slides/index.js");
-	//therapy sepcific display
-	var shortNames = idx.names;
-	//set date in header
-	var elem = page.getViewById("actionLabel");
-	
-	elem.text = hRec["collectedAt"];
-	
-	var shortName;
-	var value;
-	var elem;
-	for (i = 0; i < shortNames.length; i++) {
-		shortName = shortNames[i];
-		value = hRec[shortName];   // the health record has an additional first column
-		elem = page.getViewById(shortName + "Value");
-		elem.text = global.guiStrings[2][shortName + "Answer" + value];
-    }
-}
-
-
 
 //store current state of answers
 function onNavigatingFrom(args) {

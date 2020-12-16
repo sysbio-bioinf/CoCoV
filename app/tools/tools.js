@@ -579,9 +579,9 @@ function transformData(dat)
     var data = {
         "data": {
             "effects": effects,
-            "collectedAt": date,
-            "gender": gender,
-            "age": tools.getAppSetting("userAge", "number")
+            "collectedAt": date
+            // "gender": gender,
+            // "age": tools.getAppSetting("userAge", "number")
         }
     };
 

@@ -6,7 +6,7 @@ const observableModule = require("data/observable");
 const { Animation } = require('ui/animation');
 const screen = require("tns-core-modules/platform").Screen;
 
-function SummaryViewModel() {
+function OverviewViewModel() {
         
     const viewModel = observableModule.fromObject({
         //slideContentView: slideContentView,
@@ -105,4 +105,4 @@ function SummaryViewModel() {
     return viewModel;
 }
 
-module.exports = SummaryViewModel;
+module.exports = OverviewViewModel;

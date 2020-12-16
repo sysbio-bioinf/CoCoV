@@ -7,7 +7,7 @@
     "homePageMenuTitle": "Home",
     "diaryPageTitle": "Tagebuch",
     "addDiaryText": "Tagebuch-Eintrag hinzufügen",
-    "medicationPageTitle": "Medikation angepasst",
+    "overviewViewLabel": "Übersicht",
     "agreementText": "Test",
     "sendAgreementText": "Zustimmen",
     "agreementTitle": "Agreement",
@@ -103,5 +103,7 @@
     "notificationTitle": "Erinnerung",
     "notificationBody": "Wollen Sie heute noch einen Tagebuch-Eintrag machen?",
     "helpSettingTherapyLabel": "Zielgerichtete Therapie beinhaltet Ansätze zu Immuntherapie und Checkpointinhibitoren",
-    "pulseLabel": "Puls: "
+    "pulseLabel": "Puls: ",
+    "dateForwardBtn": "Nächster",
+    "dateBackBtn": "Vorheriger"
 }

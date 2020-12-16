@@ -12,6 +12,7 @@
     "agreementText": "Test",
     "sendAgreementText": "agree",
     "agreementTitle": "Agreement",
+    "overviewViewLabel": "Overview",
     "awaitUUID": "Test await",
     "ageLabelText": "Age:",
     "sexLabelText": "Sex:",
@@ -64,9 +65,9 @@
     "vomitingShort": "Vomiting: ",
     "diarrheaShort" : "Diarrhea: ",
     "feverShort": "Fever: ",
-    "cardiacShort": "Herzrhythmusstörungen: ",
-    "lymphNodeShort": "Lymphknotenschwellungen: ",
-    "antipyreticShort": "Fiebersenker: ",
+    "cardiacShort": "Cardiac arrhymthmia: ",
+    "lymphNodeShort": "Swelling of lymph nodes: ",
+    "antipyreticShort": "Use of antipyretic agents: ",
     "rheumaticLabel": "Rheumatic disease",
     "hypertonusLabel": "Hypertonus",
     "angiopathyLabel": "Angiopathy",
@@ -82,6 +83,8 @@
     "hivLabel": "HIV infection",
     "eventShort": "Events: ",
     "notificationTitle": "Notification",
-    "notificationBody": "Do you wish to make an entry today?"   
+    "notificationBody": "Do you wish to make an entry today?",
+    "dateForwardBtn": "Next",
+    "dateBackBtn": "Previous"   
     
 }

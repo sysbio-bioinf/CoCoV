@@ -1,8 +1,8 @@
 <Page class="page my-page" navigatingTo="onNavigatingTo" xmlns="http://schemas.nativescript.org/tns.xsd" actionBarHidden="true" loaded="onLoaded">
     <DockLayout stretchLastChild="true"> 
         <StackLayout orientation="horizontal" dock="top" width="100%">
-        <Button row="0" col="0" text="&#xf013;  " class="fas t-36" style="font-weight: normal;" horizontalAlignment="left" tap="onSummary"></Button>
-        <Button row="0" col="0" text="&#xf013;  " class="fas t-36" style="font-weight: normal;" horizontalAlignment="stretch" tap="onSettings"></Button>
+        <Button width="50%" row="0" col="0" text="&#xf013;  " class="fas t-36" style="font-weight: normal;" horizontalAlignment="left" tap="onSummary"></Button>
+        <Button width="50%" row="0" col="0" text="&#xf013;  " class="fas t-36" style="font-weight: normal;" horizontalAlignment="stretch" tap="onSettings"></Button>
         </StackLayout>
         <ScrollView dock="bottom">
                 <StackLayout verticalAlignment="center">

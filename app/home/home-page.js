@@ -100,7 +100,7 @@ function onSettings(args){
  * @param {*} args 
  */
 function onSummary(args){
-    args.object.page.frame.navigate("preconditions/preconditions-page");
+    args.object.page.frame.navigate("overview/overview-page");
 }
 
 

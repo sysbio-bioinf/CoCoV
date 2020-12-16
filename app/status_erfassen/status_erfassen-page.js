@@ -299,7 +299,7 @@ function switchTab(args) {
 			appSettings.remove("summaryChangeMode");
 		}
 		tools.setNotification(tools.getAppSetting("SendNotificationsOption", "boolean"), vm, "tomorrow");  // skip notification for the current day, if activated
-		database.transmitData(tools.parseHealthRecordList(vm.healthRecord));
+		database.transmitData(tools.parseHealthRecordForDB(vm.healthRecord));
 		transmitDataToServer(vm).then(res => {
 			
 			if(res){
@@ -502,13 +502,16 @@ function transmitDataToServer(vm)
 			}).then((r) => r.json())
 			.then((response) => {
 				//TODO catch response as key, here
-				console.log(response["data"]["createdAt"]);
+				// console.log("Response : " + JSON.stringify(response));
+				// console.log("Response : " + response["data"]["createdAt"]);
 				if (response["data"]["createdAt"] != null) {
 					resolve(true);
 				} else {
+					console.log("response incorrect: " + response);
 					reject(false);
 				}
 			}).catch((e) => {
+				console.log("Error in connection: " + e);
 				reject(false);
 
 			});

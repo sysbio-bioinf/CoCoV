@@ -46,6 +46,16 @@ function getDatabaseInterval(dbase, min, max)
 
 }
 
+/**
+ * Search if entry is has positive entry (positive = >0)
+ */
+function hasEffect(dbase, sideeffect)
+{
+    console.log("hi from wrapper");
+    return Database.hasLokiEffect(dbase,sideeffect);
+}
+
+exports.hasEffect = hasEffect;
 exports.requestData = requestData;
 exports.transmitData = transmitData;
 exports.databaseEntriesToArray = databaseEntriesToArray;

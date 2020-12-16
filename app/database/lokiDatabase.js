@@ -118,6 +118,9 @@ function getLokiInterval(collection, min, max)
 }
 
 
+
+
+
 module.exports = Database;
 
 exports.getLokiInterval = getLokiInterval;

@@ -53,6 +53,24 @@
     }
 }
 
+.my-overviewLabel{
+    font-family: Arial, Helvetica, sans-serif;
+    vertical-align: middle;
+    color: rgb(30,30,30);
+    background-color: lightgray;
+    font-size: 35;
+    hyphens: auto;
+
+}
+
+.transparent-area{
+    background-color: rgba(255, 255, 255, 210);
+    border-radius: 20;
+    padding: 20;
+    border-color: white;
+    border-width: 1;
+}
+
 //Question
 .question {
     font-family: Arial, Helvetica, sans-serif;
@@ -79,6 +97,30 @@
     // height: 25%;
 }
 
+.list-item {
+    background-color: white;
+    padding: 10;
+    margin-bottom: 5;    
+}
+
+//my overview text label
+.my-overviewTest {
+    font-family: Arial, Helvetica, sans-serif;
+    vertical-align: middle;
+    color:black;
+    font-size: 25;
+    // height: 25%;
+}
+
+// Button
+.my-button-navi {
+    background-color: rgb(169,255,76);
+    border-radius: 5;
+    color: black;
+    font-size: 35;
+    margin-top: 10;
+    width:10%;
+ }
 // Button
  .my-button-grad0 {
     background-color: rgb(169,255,76);
@@ -95,7 +137,6 @@
     color: black;
     font-size: 35;
     margin-top: 10;
-    
  }
 
 .my-button-grad2 {
