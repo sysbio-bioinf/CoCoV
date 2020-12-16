@@ -89,8 +89,8 @@ function onNavigatingTo(args) {
 	const page = args.object;
 	var view = page.getViewById("slide-content");
 	var vm;
-
-    var summaryIndex = 13;
+	var slidesIdx = require("./slides/index");
+    var summaryIndex = slidesIdx.names.length;
 
 	//if another entry was created today -> only show summary
 	if (appSettings.hasKey("latestEntry") &&

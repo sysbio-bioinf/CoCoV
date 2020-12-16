@@ -11,14 +11,14 @@
     "injectionPainAnswer3": "Ja, verhindert bestimmte tägliche Aktivitäten",
     "injectionPainAnswer4": "Notaufnahme / Krankenhaus",
  
-    "rednessQuery": "Welcher Durchmesser hat die Rötung an der Injektionsstelle?",
+    "rednessQuery": "Gibt es eine Rötung an der Injektionsstelle? (falls ja, Durchmesser)",
     "rednessAnswer0": "< 2 cm oder keine Rötung",
     "rednessAnswer1": "2 bis 5 cm",
     "rednessAnswer2": "> 5 bis 10 cm",
     "rednessAnswer3": "> 10 cm",
     "rednessAnswer4": "Nekrose",
  
-    "swellingQuery": "Welcher Durchmesser hat die Schwellung an der Injektionsstelle?", 
+    "swellingQuery": "Gibt es eine Schwellung an der Injektionsstelle? (falls ja, Durchmesser)", 
     "swellingAnswer0": "< 2 cm oder keine Schwellung",
     "swellingAnswer1": "2 bis 5 cm",
     "swellingAnswer2": "> 5 bis 10 cm",
@@ -46,14 +46,14 @@
     "headacheAnswer3": "Ja, verhindert bestimmte tägliche Aktivitäten", 
     "headacheAnswer4": "Notaufnahme / Krankenhaus",
   
-    "musclePainQuery": "Haben sie neue oder vermehrt Muskelschmerzen?",
+    "musclePainQuery": "Haben sie neu aufgetretene Muskelschmerzen?",
     "musclePainAnswer0": "Nein",
     "musclePainAnswer1": "Ja, keine alltägliche Beeinträchtigung",
     "musclePainAnswer2": "Ja, beeinträchtigt bestimmte tägliche Aktivitäten",
     "musclePainAnswer3": "Ja, verhindert bestimmte tägliche Aktivitäten", 
     "musclePainAnswer4": "Notaufnahme / Krankenhaus",
  
-    "jointPainQuery": "Haben sie neue oder vermehrt Gelenkschmerzen?",
+    "jointPainQuery": "Haben sie neu aufgetretene Gelenkschmerzen?",
     "jointPainAnswer0": "Nein",
     "jointPainAnswer1": "Ja, keine alltägliche Beeinträchtigung",
     "jointPainAnswer2": "Ja, beeinträchtigt bestimmte tägliche Aktivitäten",

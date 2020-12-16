@@ -11,14 +11,14 @@
     "injectionPainAnswer3": "Yes, prevents daily routine activity",
     "injectionPainAnswer4": "Emergency room visit",
  
-    "rednessQuery": "What is the diameter of the redness at the injection site?",
+    "rednessQuery": "Is there a redness at the injection site? (if yes, diameter)",
     "rednessAnswer0": "< 2 cm or no redness",
     "rednessAnswer1": "2 to 5 cm",
     "rednessAnswer2": "> 5 to 10 cm",
     "rednessAnswer3": "> 10 cm",
     "rednessAnswer4": "Necrosis",
  
-    "swellingQuery": "What is the diameter of the swelling at the injection site?", 
+    "swellingQuery": "Is there a swelling at the injection site? (if yes, diameter)", 
     "swellingAnswer0": "< 2 cm or no swelling",
     "swellingAnswer1": "2 to 5 cm",
     "swellingAnswer2": "> 5 to 10 cm",

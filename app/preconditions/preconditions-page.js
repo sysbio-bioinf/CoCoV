@@ -22,11 +22,54 @@ function onNavigatingTo(args) {
     });
     //init font sizes 
     tools.adjustFontSizes(page.bindingContext);
+    var gridLay = page.getViewById("preconditionsGrid");
+
+    tools.setAppSetting("noPreconditions", "number", gridLay.getRows().length - 3);
+    //initialize all checkboxes
+   for(var pre = 0; pre < (gridLay.getRows().length - 3); pre++)
+   {
+       //initialize global storage for precondition property
+       var switchView = page.getViewById("preconditionSwitch" + (pre +  1));
+       console.log("preconditionSwitch" + (pre +  1) + ": " + tools.getAppSetting("preconditionSwitch" + pre, "boolean"));
+       //set listener on property changed -> update value in global app settings
+       //set value according to stored value
+       if (tools.checkAppSetting("preconditionSwitch" + pre))
+       {
+           console.log("precondition checked at " + pre);
+           switchView.checked = tools.getAppSetting("preconditionSwitch" + (pre + 1), "boolean");
+       } 
+       else 
+       {
+            console.log("precondition set");
+            tools.setAppSetting("preconditionSwitch" + pre, "boolean", false);
+            switchView.checked = tools.getAppSetting("preconditionSwitch" + (pre + 1), "boolean");
+       }
+   }
+
+    for(var pre = 0; pre < (gridLay.getRows().length - 3); pre++)
+   {
+       //initialize global storage for precondition property
+       var switchView = page.getViewById("preconditionSwitch" + (pre +  1));
+       console.log("preconditionSwitch" + (pre +  1) + ": " + switchView);
+       //set listener on property changed -> update value in global app settings
+       switchView.on("checkedChange", (args) => {
+           tools.setAppSetting(args.object.id, "boolean", args.value);
+           console.log("Check precondition setting for " + args.object.id + ":" + tools.getAppSetting(args.object.id, "boolean"));
+       });
+   }
+
+
     
 }
 
 function onLoaded(args) {
    tools.activateHyphenation(args.object);
+   const page = args.object;
+
+   var gridLay = page.getViewById("preconditionsGrid");
+
+   console.log("Number of rows in Layout : " + gridLay.getRows().length);
+   
 }
 
 /**
@@ -34,9 +77,7 @@ function onLoaded(args) {
  * @param {} args 
  */
 function onUnloaded(args) {
-    txt2speech.on("checkedChange", function() {});
-    voicePicker.on("selectedIndexChange", function() {});
-    therapyPicker.on("selectedIndexChange", function() {});
+
 }
 
 function onDrawerButtonTap(args) {
@@ -57,9 +98,10 @@ function onCheckedChange(args) {
 function onStorePreconditions(args)
 {
     tools.setAppSetting("isSet", "boolean", true);
+
+    tools.transmitMasterData();
     args.object.page.frame.navigate("home/home-page");   
 }
-
 
 const _onStorePreconditions = onStorePreconditions;
 export { _onStorePreconditions as onStorePreconditions };

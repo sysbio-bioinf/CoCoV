@@ -562,7 +562,59 @@ function readTransmissionInfo(){
 
 
 /**
- * 
+ * Send masterdata
+ * @param {*} dat 
+ */
+
+function transmitMasterData()
+{
+    const tools = require("./tools.js");
+    var data = { "data" : {}}; 
+    var gender = (tools.getAppSetting("userSex", "number") === 3) ? 0 : tools.getAppSetting("userSex", "number");
+    var age = tools.getAppSetting("userAge", "number");
+    var preconditionNames = require("../preconditions/index.js").preconditionNames;
+    data["data"]["gender"] = gender;
+    data["data"]["age"] = age;
+    data["data"]["preconditions"] = [];
+    //data["data"]["accCode"] = 1234;
+
+
+     //check if predonditions were set
+    if(tools.checkAppSetting("noPreconditions", "number"))
+    {
+        console.log(tools.getAppSetting("noPreconditions", "number"));
+        console.log(tools.getAppSetting("preconditionSwitch" + (idx+1), "boolean"));
+        //aquire preconditions
+        for(var idx = 0; idx < (tools.getAppSetting("noPreconditions", "number")); idx++)
+        {
+            data["data"]["preconditions"].push({"key" : preconditionNames[idx], "value" : tools.getAppSetting("preconditionSwitch" + (idx+1), "boolean")});
+        }
+    }
+    
+    console.log("Master data transmission  :" + JSON.stringify(data));
+
+    fetch(tools.getAppSetting("server", "string") + "/apikeys/" + tools.getAppSetting("UUID", "string") + "/metadata", {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    }).then((r) => r.json())
+    .then((response) => {
+        //TODO catch response as key, here
+         console.log(response);
+        // console.log("Response : " + response["data"]["createdAt"]);
+        
+    }).catch((e) => {
+        console.log("Error in connection: " + e);
+        reject(false);
+
+    });
+
+}
+
+/**
+ * Parse sideeffects to JSON package for transmission
  */
 
 function transformData(dat)
@@ -572,7 +624,7 @@ function transformData(dat)
     effects.push({"key":"vaccine", "value": tools.getAppSetting("userVaccine", "string")});
     var date = new Date();
     date = date.toISOString();
-    var gender = (tools.getAppSetting("userSex", "number") === 3) ? 0 : tools.getAppSetting("userSex", "number");
+    //var gender = (tools.getAppSetting("userSex", "number") === 3) ? 0 : tools.getAppSetting("userSex", "number");
     
     console.log(date);
     console.log(tools.getAppSetting("userAge", "number"));
@@ -588,6 +640,7 @@ function transformData(dat)
     return data;
 }
 
+exports.transmitMasterData = transmitMasterData;
 exports.transformData = transformData;
 exports.readTransmissionInfo = readTransmissionInfo;
 exports.parseHealthRecordForDB = parseHealthRecordForDB;
