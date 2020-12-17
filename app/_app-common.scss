@@ -53,54 +53,39 @@
     }
 }
 
-.my-home{
-    background-color: rgb(16,158,194);
-}
-
-.my-home-btn {
-    border-radius: 10;
-    box-shadow: 10px 10px 5px grey;
-    border-color: white;
-    border-width: 1;
-  }
-
-.my-overviewLabel{
-    font-family: Arial, Helvetica, sans-serif;
-    vertical-align: middle;
-    color: rgb(30,30,30);
-    background-color: lightgray;
-    font-size: 35;
-    hyphens: auto;
-
-}
-
-.transparent-area{
-    background-color: rgba(255, 255, 255, 210);
-    border-radius: 20;
-    padding: 20;
-    border-color: white;
-    border-width: 1;
-}
-.controlbar {
-    font-family: Arial, Helvetica, sans-serif;
-    vertical-align: middle;
-    font-size: 20;
-    hyphens: auto;
-    box-shadow: 10px 10px 5px grey;
-    border-bottom-color: rgb(158, 156, 156);
-    border-width: 1;
-   // height: 25%;
-}
-
 //Question
 .question {
     font-family: Arial, Helvetica, sans-serif;
     vertical-align: middle;
     color: rgb(30,30,30);
+    background-color: white;
+    border-radius: 15;
     font-size: 35;
-    hyphens: auto;
+    margin-top:20;
+    margin-left: 10;
+    margin-right: 10;
+    //hyphens: auto;
    // height: 25%;
 }
+
+.questionText {
+    font-family: Arial, Helvetica, sans-serif;
+    vertical-align: middle;
+    color: rgb(30,30,30);
+    background-color: white;
+    border-radius: 15;
+    font-size: 35;
+    margin-top:20;
+    margin-left: 10;
+    margin-right: 10;
+    border-color: black;
+    border-width: 1;
+    //hyphens: auto;
+   // height: 25%;
+}
+
+
+
 //Labels for summary tab
 .summary-header {
     font-family: Arial, Helvetica, sans-serif;
@@ -118,74 +103,54 @@
     // height: 25%;
 }
 
-.list-item {
-    background-color: white;
-    padding: 10;
-    margin-bottom: 5;    
-}
-
-//my overview text label
-.my-overviewTest {
-    font-family: Arial, Helvetica, sans-serif;
-    vertical-align: middle;
-    color:black;
-    font-size: 25;
-    // height: 25%;
-}
-
-// Button
-.my-button-navi {
-    background-color: rgb(169,255,76);
-    border-radius: 5;
-    color: black;
-    font-size: 35;
-    margin-top: 10;
-    width:10%;
- }
 // Button
  .my-button-grad0 {
-    background-color: rgb(169,255,76);
-    border-radius: 5;
+    background-color: rgba(121, 212, 228, 0.76);
+   // background-color: #99CCFF;
+    border-radius: 50;
     color: black;
     font-size: 35;
-    margin-top: 10;
+    margin-top:40;
+    margin-left: 10;
+    margin-right: 10;
     
  }
 
  .my-button-grad1 {
-    background-color: yellow;
-    border-radius: 5;
+    background-color: rgba(94, 198, 216, 0.76);
+    //background-color: #8abef1;
+    border-radius: 50;
     color: black;
     font-size: 35;
-    margin-top: 10;
+    margin-top: 15;
+    margin-left: 10;
+    margin-right: 10;
+    
  }
 
 .my-button-grad2 {
-    background-color: orange;
-    border-radius: 5;
+    background-color: rgba(67, 183, 204, 0.76);
+   // background-color: #6daeee;
+    border-radius: 50;
     color: black;
     font-size: 35;
-    margin-top: 10;
+    margin-top: 15;
+    margin-left: 10;
+    margin-right: 10;
     
 }
 
  .my-button-grad3 {
-     background-color: rgb(255,163,166);
-     border-radius: 5;
+   background-color: rgba(21, 158, 182, 0.76);
+   //background-color: #4e9ce9;
+     border-radius: 50;
      color: black;
      font-size: 35;
-     margin-top: 10;
+     margin-top: 15;
+     margin-left: 10;
+     margin-right: 10;
     
  }
-
- .my-button-grad4 {
-    background-color: rgb(255, 88, 94);
-    border-radius: 5;
-    color: black;
-    font-size: 35;
-    margin-top: 10;
-   
-}
 
  .my-button-gradX {
     background-color: rgb(200,200,200);
@@ -213,12 +178,12 @@
     
 }
 
- .my-button-grad0:active, .my-button-grad1:active, .my-button-grad2:active, .my-button-grad3:active, .my-button-grad4:active, .my-button-gradX:active {
+ .my-button-grad0:active, .my-button-grad1:active, .my-button-grad2:active, .my-button-grad3:active, .my-button-gradX:active {
     background-color: lightslategray;
     color: white;
     margin-top: 10;   
 }
-.my-button-grad0, .my-button-grad1 .my-button-grad2, .my-button-grad3, .my-button-grad4, .my-button-gradX:active, .my-button-gradN0, .my-button-gradN1 {
+.my-button-grad0, .my-button-grad1 .my-button-grad2, .my-button-grad3, .my-button-gradX:active, .my-button-gradN0, .my-button-gradN1 {
     padding-top: 4;
     padding-bottom: 5;
     padding-left: 10;
@@ -239,10 +204,6 @@
      margin-top: 10;
   }
 
-  .my-textField {
-    text-align: center;
-  }
-
 .my-button-hidden {
     visibility: hidden;
     margin-top: 10;
@@ -256,7 +217,7 @@
 .my-button-diary {
     z-index: 0;
     color: white;
-    background-color: rgb(44,127,119);
+    background-color: rgb(21, 158, 182);
     font-size: 70;
     margin-bottom: 8;
     border-radius: 5;
@@ -268,7 +229,7 @@
 .my-button-medication {
     z-index: 0;
     color: white;
-    background-color: rgb(58,83,255);
+    background-color:rgb(21, 158, 182);
     font-size:50;
     margin-bottom: 8;
     border-radius: 5;
@@ -278,21 +239,6 @@
     padding-top: 20;
     
 }
-
-.my-button-confirm {
-    z-index: 0;
-    color: white;
-    background-color: rgb(58,83,255);
-    font-size:30;
-    margin-bottom: 8;
-    border-radius: 5;
-    padding-left: 30;
-    padding-right: 30;
-    padding-bottom: 30;
-    padding-top: 20;
-    
-}
-
 
 .capitalization {
     text-transform: none;
@@ -310,13 +256,13 @@
 }
 
 .btn-primary:active {
-    background-color: lightgreen;
+    background-color:rgb(230,230,230);
     color: black;
     margin-top: 10;
 }
 
 .my-button-primary {
-    background-color:  rgb(58,83,255);
+    background-color:rgb(21, 158, 182);
     padding-top: 4;
     padding-bottom: 5;
     padding-left: 10;
@@ -388,16 +334,10 @@
 }
 
 .settings-link {
-    color: blue;
+    color: rgb(21, 158, 182);
     padding: 0;
     padding-bottom: 5;
     font-weight: normal;
-    font-size: small;
-}
-
-.settings-label {
-    font-weight: normal;
-    font-size: medium;;
 }
 
 .qr-image {
@@ -406,7 +346,7 @@
 }
 
 .status-message {
-    color: blue;
+    color: rgb(21, 158, 182);
 }
 
 .weight-separator {
