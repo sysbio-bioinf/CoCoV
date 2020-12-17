@@ -72,12 +72,15 @@
     font-family: Arial, Helvetica, sans-serif;
     vertical-align: middle;
     color: rgb(30,30,30);
-    background-color: white;
-    border-radius: 15;
+    background-color: rgba(226, 238, 240, 0.788);
+  //  border-radius: 15;
     font-size: 35;
-    margin-top:20;
-    margin-left: 10;
-    margin-right: 10;
+    margin-top: 5;
+    min-height: 242;
+    margin-left: -10;
+    margin-right: -10;
+    margin-bottom: 20;
+    padding: 10 10 10 10;
     border-color: black;
     border-width: 1;
     //hyphens: auto;
@@ -109,8 +112,8 @@
    // background-color: #99CCFF;
     border-radius: 50;
     color: black;
-    font-size: 35;
-    margin-top:40;
+    font-size: 25;
+    margin-top:15;
     margin-left: 10;
     margin-right: 10;
     
@@ -121,7 +124,7 @@
     //background-color: #8abef1;
     border-radius: 50;
     color: black;
-    font-size: 35;
+    font-size: 25;
     margin-top: 15;
     margin-left: 10;
     margin-right: 10;
@@ -133,7 +136,7 @@
    // background-color: #6daeee;
     border-radius: 50;
     color: black;
-    font-size: 35;
+    font-size: 25;
     margin-top: 15;
     margin-left: 10;
     margin-right: 10;
@@ -145,35 +148,48 @@
    //background-color: #4e9ce9;
      border-radius: 50;
      color: black;
-     font-size: 35;
+     font-size: 25;
      margin-top: 15;
      margin-left: 10;
      margin-right: 10;
     
  }
+ .my-button-grad4 {
+    background-color: rgba(8, 138, 161, 0.76);
+    //background-color: #4e9ce9;
+      border-radius: 50;
+      color: black;
+      font-size: 25;
+      margin-top: 15;
+      margin-left: 10;
+      margin-right: 10;
+     
+  }
+ 
+
 
  .my-button-gradX {
     background-color: rgb(200,200,200);
-    border-radius: 5;
+    border-radius: 50;
     color: black;
-    font-size: 35;
+    font-size: 25;
     margin-top: 10;
 }
 
 .my-button-gradN0 {
     background-color: rgb(160,215,255);
-    border-radius: 5;
+    border-radius: 50;
     color: black;
-    font-size: 35;
+    font-size: 25;
     margin-top: 10;
     
 }
 
 .my-button-gradN1 {
     background-color: rgb(160,215,255);    //rgb(105,193,255);
-    border-radius: 5;
+    border-radius: 50;
     color: black;
-    font-size: 35;
+    font-size: 25;
     margin-top: 10;
     
 }
@@ -193,7 +209,7 @@
 
  .my-button-disabled {
     background-color: rgb(199, 199, 199);
-    border-radius: 5;
+    border-radius: 50;
     color: black;
     margin-top: 10;
     

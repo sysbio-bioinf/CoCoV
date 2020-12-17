@@ -1,6 +1,6 @@
 let slide = `
 <GridLayout id="fever" row="0" rows="auto, *, *, *, *, *, *">
-    <Label row="0" text="{{ feverQuery }}" fontSize="{{ mySize }}" textWrap="true" class="question text-center" />
+    <Label row="0" text="{{ feverQuery }}" fontSize="{{ mySize }}" textWrap="true" class="questionText text-center" />
     <Button row="2" id="0" text="{{ feverAnswer0 }}" fontSize="{{ mySize }}" class="-btn -btn-primary my-button-grad0 my-button-grad0:active capitalization" tap="{{ switchTab }}" />
     <Button row="3" id="1" text="{{ feverAnswer1 }}" fontSize="{{ mySize }}" class="-btn -btn-primary my-button-grad1 my-button-grad1:active capitalization" tap="{{ switchTab }}" />
     <Button row="4" id="2" text="{{ feverAnswer2 }}" fontSize="{{ mySize }}" class="-btn -primary my-button-grad2 my-button-grad2:active capitalization" tap="{{ switchTab }}" />
