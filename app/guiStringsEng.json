@@ -88,6 +88,7 @@
     "dateBackBtn": "Previous",
     "accessionCodeLabel": "Code: ",
     "dataDeletedAlert": "Data was deleted successfully.",
-    "noDataToDisplay": "There is no data to display"  
+    "noDataToDisplay": "There is no data to display",
+    "confirmPreconditions": "save"  
     
 }

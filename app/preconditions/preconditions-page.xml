@@ -29,7 +29,7 @@
             <Switch row="12" col="1" id="preconditionSwitch12" checked="{{ ulcerChecked }}" isEnabled="true" horizontalAlignment="right" class="my-switch" />
             <Label row="13" col="0" text="{{ hivLabel }}" horizontalAlignment="left"></Label> 
             <Switch row="13" col="1" id="preconditionSwitch13" checked="{{ hivChecked }}" isEnabled="true" horizontalAlignment="right" class="my-switch" />
-            <Button row="14" col="0" colSpan="2" id="confirmPreconditionsBtn" class="my-button-confirm" tap="onStorePreconditions"></Button> 
+            <Button row="14" col="0" colSpan="2" id="confirmPreconditionsBtn" text="{{ confirmPreconditions }}" class="my-button-confirm" tap="onStorePreconditions"></Button> 
         </GridLayout>
     </ScrollView>
 </Page>

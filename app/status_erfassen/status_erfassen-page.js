@@ -218,11 +218,12 @@ function initSummary(bindingContext, switchBackFlag, slideNum) {
 			bindingContext.set("saveButtonCurrent", bindingContext.get("saveButton"));
 			bindingContext.set("changeButtonSize", bindingContext.get("mySizeSummary"));
 		}
-		if(i <= (shortNames.length - 1)) {
+		if(i < (shortNames.length - 1)) {
 			//console.log(shortName + "Answer" + value);
 			bindingContext.set(shortName, bindingContext.get(shortName + "Answer" + value));
 		} else{
 			var answerText = hRec[i + 1];
+			console.log(answerText);
 			bindingContext.set(shortName, answerText);
 		}
 	}
@@ -352,10 +353,10 @@ function goBack(page, index, fromOutside)
 	vm.fromOutside = fromOutside;
 	
 	appSettings.setBoolean("summaryChangeMode", true);
-	if (index!=12)
-		highlightSelectedButton(view, shortNames[index], vm.healthRecord[index + 1]);
-	else
-		set_comment(page, shortNames[index], vm.healthRecord[index + 1]);
+	// if (index!=(shortNames.length - 2))
+	// 	highlightSelectedButton(view, shortNames[index], vm.healthRecord[index + 1]);
+	// else
+	// 	set_comment(page, shortNames[index], vm.healthRecord[index + 1]);
 	
 	
 }
