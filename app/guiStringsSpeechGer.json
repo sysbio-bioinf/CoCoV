@@ -85,11 +85,11 @@
     "cardiacAnswer0": "Ja",
     "cardiacAnswer1": "Nein",
 
-    "lymphNodeQuery": "Haben Sie aktuell Lymphknotenschwellungen?",
+    "lymphNodeQuery": "Haben Sie aktuell geschwollene Lymphknoten?",
     "lymphNodeAnswer0": "Ja",
     "lymphNodeAnswer1": "Nein",
 
-    "antipyreticQuery": "Nehmen Sie aktuell Fiebersenker ein?",
+    "antipyreticQuery": "Nehmen Sie aktuell fiebersenkende Medikamente ein?",
     "antipyreticAnswer0": "Ja",
     "antipyreticAnswer1": "Nein"
 }
