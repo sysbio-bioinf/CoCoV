@@ -88,7 +88,6 @@
 }
 
 
-
 //Labels for summary tab
 .summary-header {
     font-family: Arial, Helvetica, sans-serif;
@@ -152,7 +151,7 @@
      margin-top: 15;
      margin-left: 10;
      margin-right: 10;
-    
+  
  }
  .my-button-grad4 {
     background-color: rgba(8, 138, 161, 0.76);
@@ -166,8 +165,6 @@
      
   }
  
-
-
  .my-button-gradX {
     background-color: rgb(200,200,200);
     border-radius: 50;
@@ -206,6 +203,30 @@
     padding-right: 10;
    
 }
+
+.my-button-confirm {
+    background-color: rgba(76, 154, 168, 0.76);
+    //background-color: #4e9ce9;
+      border-radius: 25;
+      color: black;
+      font-size: 25;
+      margin-top: 5;
+      margin-left: 10;
+      margin-right: 10;
+     
+  }
+
+  .my-button-remove {
+    background-color: rgba(150, 0, 0, 0.76);
+    //background-color: #4e9ce9;
+      border-radius: 25;
+      color: black;
+      font-size: 25;
+      margin-top: 5;
+      margin-left: 10;
+      margin-right: 10;
+     
+  }
 
  .my-button-disabled {
     background-color: rgb(199, 199, 199);
@@ -311,10 +332,6 @@
     padding-left: 10;
 }
 
-.help-tts {
-    margin-top: -10;
-}
-
 .help-notification {
     padding-bottom: 3;
 }
@@ -326,6 +343,7 @@
 
 .settings-subcontainer {
     margin-top: 15;
+    font-size: 25;
 }
 .settings-id {
     width: 120;
@@ -337,28 +355,11 @@
     border-bottom-width: 1;
 }
 
-.settings-voice-container {
-    padding-left: 20;
-    padding-right: 20;
-}
-
-.settings-voice {
-    height: 120;
-    margin-left: 10;
-    margin-right: 10;
-    margin-top: -10;
-}
-
 .settings-link {
     color: rgb(21, 158, 182);
     padding: 0;
     padding-bottom: 5;
     font-weight: normal;
-}
-
-.qr-image {
-    width: 200;
-    height: 300;
 }
 
 .status-message {

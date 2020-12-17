@@ -8,7 +8,7 @@
             </GridLayout>
             <GridLayout row="3" colSpan="2" columns="*,auto" rows="auto, auto,auto" class="settings-subcontainer">
                 <Label row="0" col="0" text="{{ ageLabelText }}" textWrap="true" class="settings-label" />
-                <ListPicker row="1" items = "{{ ageItems }}" selectedIndex = "{{ ageIndex }}" selectedValue = "{{ ageSelected }}" id="agePicker"  height="{{ ageHeight }}" />
+                <ListPicker row="1" items = "{{ ageItems }}" selectedIndex = "{{ ageIndex }}" selectedValue = "{{ ageSelected }}" id="agePicker" height="{{ ageHeight }}" />
             </GridLayout>
             <GridLayout row="5" colSpan="2" columns="*,auto" rows="auto, auto,auto" class="settings-subcontainer">
                 <Label row="0" col="0" text="{{ sexLabelText }}" textWrap="true" class="settings-label" />
@@ -27,7 +27,9 @@
                 <Label row="0" col="0" text="{{ imprintPageTitle }}" textWrap="true" class="settings-link" horizontalAlignment="left" tap="{{openImprint}}" />
                 <Label row="1" col="0" text="{{ dataSecurityPageTitle }}" textWrap="true" class="settings-link" horizontalAlignment="left" tap="{{openDataSecurity}}" />
             </GridLayout>
+            <GridLayout row="12" colSpan="2" columns="*,auto" rows="auto, auto, auto" class="settings-subcontainer ">
             <Button id="removeDataBtn" row="11" text="{{ removeAccountLabel }}" class="my-button-remove" tap="onRemoveData" ></Button>
+              </GridLayout>
         </GridLayout>
     </ScrollView>
 </Page>
