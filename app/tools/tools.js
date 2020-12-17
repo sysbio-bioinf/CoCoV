@@ -642,8 +642,10 @@ function transformData(dat)
 function showCommunicationAlert()
 {
     var dialogs = require("tns-core-modules/ui/dialogs");
-    dialogs.alert(global.guiStrings[1]["connectionErrorAlert"]).then(function() {
-	});
+    return new Promise( (resolve, reject) => {
+        dialogs.alert(global.guiStrings[1]["connectionErrorAlert"]).then(function() {
+            resolve(true);
+	})});
 
 }
 
@@ -657,10 +659,21 @@ function showDataDeletedAlert()
     dialogs.alert(global.guiStrings[1]["dataDeletedAlert"]).then(function() {
         resolve(true);
 	})});
-
 }
 
+/**
+ * Show alert when no data is stored / available
+ */
+function showNoDataAlert()
+{
+    var dialogs = require("tns-core-modules/ui/dialogs");
+    return new Promise( (resolve, reject) => {
+    dialogs.alert(global.guiStrings[1]["noDataToDisplay"]).then(function() {
+        resolve(true);
+	})});
+}
 
+exports.showNoDataAlert = showNoDataAlert;
 exports.showDataDeletedAlert = showDataDeletedAlert;
 exports.showCommunicationAlert = showCommunicationAlert;
 exports.transmitMasterData = transmitMasterData;

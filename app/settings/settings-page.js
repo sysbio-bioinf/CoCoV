@@ -222,26 +222,30 @@ function onRemoveData(args)
             body: JSON.stringify({})
             })//.then((r) => r.json())
             .then((response) => {
-                console.log(response);
                 //set UUID 
                 //delet UUID and reset agreement
                 if(response["status"] === 204){
-                    console.log(response);
                     const appSettings = require("tns-core-modules/application-settings");
                     appSettings.remove("UUID");
                     appSettings.remove("latestEntry");
                     appSettings.setBoolean("completed",false);
                     tools.setAppSetting("isAgreed", "boolean", false);
-                    database.removeData();
-                    
-                    //shows dialog and switch back to home 
-                    tools.showDataDeletedAlert().then( (resolved) => {
-                        frameModule.topmost().navigate("home/home-page");
+                    database.removeData().then( (resolved) => {
+                        
+
+                        //shows dialog and switch back to home 
+                        tools.showDataDeletedAlert().then( (resolved) => {
+                            frameModule.topmost().navigate("home/home-page");
+                        });
+                    }).catch( (error) => {
+                        console.log(error);
                     });
                 }
                 else 
                 {
-                    tools.showCommunicationAlert();
+                    tools.showCommunicationAlert().then( (resolved) => {
+                        frameModule.topmost().navigate("home/home-page");
+                    });
                 }
             
             }).catch((e) => {

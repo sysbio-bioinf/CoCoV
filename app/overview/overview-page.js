@@ -2,6 +2,7 @@ const OverviewViewModel = require("./overview-view-model");
 const tools = require("../tools/tools.js");
 const database = require("../database/databaseInterface");
 const labelModule = require("tns-core-modules/ui/label");
+const frameModule = require("tns-core-modules/ui/frame");
 //store loaded data globally
 var dbEntries;
 
@@ -25,6 +26,14 @@ function onLoaded(args) {
 		var label;
 		var txt;
 		var container = page.getViewById("overviewGrid");
+		//show alert if no data is available
+		if( withEffect.length === 0)
+		{
+			tools.showNoDataAlert().then( (resolve) => {
+				frameModule.topmost().navigate("home/home-page");
+			})
+		}
+		else{
 		withEffect.forEach((effect,index,arry) =>
 		{
 			container.addRow(new ItemSpec(index, GridUnitType.STAR));
@@ -41,7 +50,7 @@ function onLoaded(args) {
 			//add label to gridlayout
 			container.addChild(label);
 		});
-
+		}
     });
 	
 	

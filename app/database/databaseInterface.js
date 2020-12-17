@@ -62,7 +62,6 @@ function getDatabaseInterval(dbase, min, max)
  */
 function hasEffect(dbase, sideeffect)
 {
-    console.log("hi from wrapper");
     return Database.hasLokiEffect(dbase,sideeffect);
 }
 
