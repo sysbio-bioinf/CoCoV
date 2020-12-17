@@ -5,6 +5,7 @@ const appSettings = require("tns-core-modules/application-settings");
 const frame = require('ui/frame');
 const platformModule = require("tns-core-modules/platform");
 const database = require("../database/databaseInterface");
+const frameModule = require("tns-core-modules/ui/frame");
 //store loaded data globally
 var dbEntries;
 
@@ -85,6 +86,13 @@ function onNavigatingTo(args) {
 	});
 	dbEntries.then(function (db) {
 		vm.length = db.data.length;
+
+		if(db.data.length === 0)
+		{
+			tools.showNoDataAlert().then( (resolve) => {
+				frameModule.topmost().navigate("home/home-page");
+			});
+		}
 		initSummary(page, vm,db.data[vm.currentSlideNum]);
 });
 

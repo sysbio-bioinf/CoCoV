@@ -54,11 +54,17 @@ class Database {
      */
     removeCollection()
     {
-        return new Promise(function(resolve,reject) { this.db.loadDatabase({},function() {
-            this.db.removeCollection("health");
+        var db = this.db;
+        
+        return new Promise(function(resolve,reject) {
+            // const documents = fileSystemModule.knownFolders.documents();
+            // const folder = documents.getFolder(vm.get("folderName") || "testFolder");
+            // const file = folder.getFile();
+            db.removeCollection("health");
+            db.saveDatabase();
             resolve(true);
-        });}
-        );
+        });
+        
     }
 
     /**
