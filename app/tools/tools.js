@@ -566,7 +566,7 @@ function readTransmissionInfo(){
  * @param {*} dat 
  */
 
-function transmitMasterData()
+function transmitMasterData(withPreconditions)
 {
     const tools = require("./tools.js");
     var data = { "data" : {}}; 
@@ -574,13 +574,12 @@ function transmitMasterData()
     var age = tools.getAppSetting("userAge", "number");
     var preconditionNames = require("../preconditions/index.js").preconditionNames;
     data["data"]["gender"] = gender;
-    data["data"]["age"] = age;
+    data["data"]["age"] = age + tools.getAppSetting("ageOffset", "number");
     data["data"]["preconditions"] = [];
-    //data["data"]["accCode"] = 1234;
-
+    data["data"]["accCode"] = tools.getAppSetting("accCode", "string");
 
      //check if predonditions were set
-    if(tools.checkAppSetting("noPreconditions", "number"))
+    if(tools.checkAppSetting("noPreconditions"))
     {
         console.log(tools.getAppSetting("noPreconditions", "number"));
         console.log(tools.getAppSetting("preconditionSwitch" + (idx+1), "boolean"));
@@ -592,6 +591,7 @@ function transmitMasterData()
     }
     
     console.log("Master data transmission  :" + JSON.stringify(data));
+    console.log(tools.getAppSetting("server", "string") + "/apikeys/" + tools.getAppSetting("UUID", "string") + "/metadata");
 
     fetch(tools.getAppSetting("server", "string") + "/apikeys/" + tools.getAppSetting("UUID", "string") + "/metadata", {
         method: "PUT",
@@ -602,10 +602,10 @@ function transmitMasterData()
     }).then((r) => r.json())
     .then((response) => {
         //TODO catch response as key, here
-         console.log(response);
-        // console.log("Response : " + response["data"]["createdAt"]);
+        console.log("Response : " + JSON.stringify(response));
         
     }).catch((e) => {
+        showCommunicationAlert();
         console.log("Error in connection: " + e);
         reject(false);
 
@@ -616,7 +616,6 @@ function transmitMasterData()
 /**
  * Parse sideeffects to JSON package for transmission
  */
-
 function transformData(dat)
 {
     const tools = require("./tools.js");
@@ -624,22 +623,46 @@ function transformData(dat)
     effects.push({"key":"vaccine", "value": tools.getAppSetting("userVaccine", "string")});
     var date = new Date();
     date = date.toISOString();
-    //var gender = (tools.getAppSetting("userSex", "number") === 3) ? 0 : tools.getAppSetting("userSex", "number");
     
-    console.log(date);
     console.log(tools.getAppSetting("userAge", "number"));
     var data = {
         "data": {
             "effects": effects,
             "collectedAt": date
-            // "gender": gender,
-            // "age": tools.getAppSetting("userAge", "number")
         }
     };
 
     return data;
 }
 
+
+/**
+ * Show Alert whenever data cannot be sent due to connection issues
+ */
+function showCommunicationAlert()
+{
+    var dialogs = require("tns-core-modules/ui/dialogs");
+    dialogs.alert(global.guiStrings[1]["connectionErrorAlert"]).then(function() {
+	});
+
+}
+
+/**
+ * Show Alert whenever data cannot be sent due to connection issues
+ */
+function showDataDeletedAlert()
+{
+    var dialogs = require("tns-core-modules/ui/dialogs");
+    return new Promise( (resolve, reject) => {
+    dialogs.alert(global.guiStrings[1]["dataDeletedAlert"]).then(function() {
+        resolve(true);
+	})});
+
+}
+
+
+exports.showDataDeletedAlert = showDataDeletedAlert;
+exports.showCommunicationAlert = showCommunicationAlert;
 exports.transmitMasterData = transmitMasterData;
 exports.transformData = transformData;
 exports.readTransmissionInfo = readTransmissionInfo;

@@ -53,6 +53,17 @@
     }
 }
 
+.my-home{
+    background-color: rgb(16,158,194);
+}
+
+.my-home-btn {
+    border-radius: 10;
+    box-shadow: 10px 10px 5px grey;
+    border-color: white;
+    border-width: 1;
+  }
+
 .my-overviewLabel{
     font-family: Arial, Helvetica, sans-serif;
     vertical-align: middle;
@@ -69,6 +80,16 @@
     padding: 20;
     border-color: white;
     border-width: 1;
+}
+.controlbar {
+    font-family: Arial, Helvetica, sans-serif;
+    vertical-align: middle;
+    font-size: 20;
+    hyphens: auto;
+    box-shadow: 10px 10px 5px grey;
+    border-bottom-color: rgb(158, 156, 156);
+    border-width: 1;
+   // height: 25%;
 }
 
 //Question
@@ -218,6 +239,10 @@
      margin-top: 10;
   }
 
+  .my-textField {
+    text-align: center;
+  }
+
 .my-button-hidden {
     visibility: hidden;
     margin-top: 10;
@@ -231,7 +256,7 @@
 .my-button-diary {
     z-index: 0;
     color: white;
-    background-color: rgb(58,83,255);
+    background-color: rgb(44,127,119);
     font-size: 70;
     margin-bottom: 8;
     border-radius: 5;
@@ -367,6 +392,12 @@
     padding: 0;
     padding-bottom: 5;
     font-weight: normal;
+    font-size: small;
+}
+
+.settings-label {
+    font-weight: normal;
+    font-size: medium;;
 }
 
 .qr-image {

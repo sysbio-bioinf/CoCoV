@@ -48,16 +48,13 @@ function onDrawerButtonTap(args) {
  */
 function sendAgreement(args) {
     
-    const fileSystemModule = require("tns-core-modules/file-system");
-    let dir = fileSystemModule.knownFolders.currentApp().getFolder('assets');
-    let certificate = dir.getFile('abel-informatik-uni-ulm-de.pem').path;
-    Https.enableSSLPinning({ host: 'abel.informatik.uni-ulm.de', certificate });
-    Https.disableSSLPinning();
     const page = args.object.page;
     const hashedPassword = (password, salt) => {
         
-        page.bindingContext.set("agreementText", global.guiStrings[1]["awaitUUID"]);
+        page.bindingContext.set("sendAgreementText", "");
         page.bindingContext.set("isBusy", true);
+        
+        page.getViewById("agreementTextField").visible = "hidden";
         return new Promise((resolve, reject) => {
             bcrypt.hash(password, salt, (err, hash) => {
                 if (err) {
@@ -81,7 +78,9 @@ function sendAgreement(args) {
         {
             //create bcrypt hash, based on given secret
             hashedPassword(tools.getAppSetting("secret", "string"), tools.getAppSetting("salt", "number")).then((passwordHash, err) => {
+                //read server data
                 tools.readTransmissionInfo();
+                //send package to request UUID from server
                 fetch(tools.getAppSetting("server", "string") + "/apikeys", {
                 method: "POST",
                 headers: {"x-auth-token": passwordHash },
@@ -89,22 +88,24 @@ function sendAgreement(args) {
                 }).then((r) => r.json())
                 .then((response) => {
                     //set UUID 
-                    console.log(response);
                     const result = response["data"]["id"];
                     tools.setAppSetting("UUID", "string", result);
-                    console.log(tools.getAppSetting("UUID", "string"));
+                    tools.setAppSetting("isAgreed", "boolean", true);
+                
+                    if(!tools.getAppSetting("isSet", "boolean"))
+                        frameModule.topmost().navigate("settings/settings-page");
+                    else
+                        frameModule.topmost().navigate("home/home-page");
+
+
                 }).catch((e) => {
-                    console.log("Error: " + e);
+                    tools.showCommunicationAlert();
+                    page.bindingContext.set("isBusy", false);
                     page.bindingContext.set("agreementText", global.guiStrings[0]["awaitUUID"]);
                 });
             
-                tools.setAppSetting("isAgreed", "boolean", true);
                 
-                if(!tools.getAppSetting("isSet", "boolean"))
-                    frameModule.topmost().navigate("settings/settings-page");
-                else
-                    frameModule.topmost().navigate("home/home-page");
-            }).catch(err => {console.log("not hashed, " + err)});
+            }).catch(err => {tools.showCommunicationAlert()});
         }
 
     });

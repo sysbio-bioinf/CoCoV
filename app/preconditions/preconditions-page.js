@@ -28,12 +28,13 @@ function onNavigatingTo(args) {
     //initialize all checkboxes
    for(var pre = 0; pre < (gridLay.getRows().length - 3); pre++)
    {
+       console.log("PRE index :" + pre );
        //initialize global storage for precondition property
        var switchView = page.getViewById("preconditionSwitch" + (pre +  1));
        console.log("preconditionSwitch" + (pre +  1) + ": " + tools.getAppSetting("preconditionSwitch" + pre, "boolean"));
        //set listener on property changed -> update value in global app settings
        //set value according to stored value
-       if (tools.checkAppSetting("preconditionSwitch" + pre))
+       if (tools.checkAppSetting("preconditionSwitch" + (pre + 1)))
        {
            console.log("precondition checked at " + pre);
            switchView.checked = tools.getAppSetting("preconditionSwitch" + (pre + 1), "boolean");
@@ -41,7 +42,7 @@ function onNavigatingTo(args) {
        else 
        {
             console.log("precondition set");
-            tools.setAppSetting("preconditionSwitch" + pre, "boolean", false);
+            tools.setAppSetting("preconditionSwitch" + (pre+1), "boolean", false);
             switchView.checked = tools.getAppSetting("preconditionSwitch" + (pre + 1), "boolean");
        }
    }

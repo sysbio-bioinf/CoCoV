@@ -105,5 +105,7 @@
     "helpSettingTherapyLabel": "Zielgerichtete Therapie beinhaltet Ansätze zu Immuntherapie und Checkpointinhibitoren",
     "pulseLabel": "Puls: ",
     "dateForwardBtn": "Nächster",
-    "dateBackBtn": "Vorheriger"
+    "dateBackBtn": "Vorheriger",
+    "accessionCodeLabel": "Code:",
+    "dataDeletedAlert": "Daten wurden erfolgreich gelöscht."
 }

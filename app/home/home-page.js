@@ -49,12 +49,6 @@ function onNavigatingTo(args) {
 
 function onLoaded(args) {
     const page = args.object;
-    // tools.bindGuiStrings(page.bindingContext);
-    // global.guiStringsLoaded.then(function (value) {
-    //     console.log("Loaded on loaded");
-    //     tools.bindGuiStrings(page.bindingContext,0,tools.getAppSetting("languageID", "number"));
-    // });
-    //console.log(appSettings.getString("latestEntry : " + appSettings.("latestEntry") + "; " + appSettings.getString("latestEntry") + ", " + tools.getCurrentTimeStampShort()));
     //display this note only when another entry was stored at the same day
     let helpText = page.getViewById("helpText");
     if (appSettings.hasKey("latestEntry") &&
@@ -67,6 +61,21 @@ function onLoaded(args) {
         helpText.visibility = "hidden";
     }
 
+
+    // if(!tools.checkAppSetting("languageID")){
+    //     frameModule.topmost().navigate("language/language-page");
+    //     return;
+    // }
+
+    // if(!tools.getAppSetting("isAgreed", "boolean")){
+    //     frameModule.topmost().navigate("agreement/agreement-page");
+    //     return;
+    // }
+    
+    // if(!tools.getAppSetting("isSet", "boolean")){
+    //     frameModule.topmost().navigate("settings/settings-page");
+    //     return;
+    // }
     tools.activateHyphenation(page);
 }
 
@@ -99,11 +108,17 @@ function onSettings(args){
  * Jump to summary dialog, when hitting summary wheel button on top of main page
  * @param {*} args 
  */
-function onSummary(args){
-    args.object.page.frame.navigate("preconditions/preconditions-page");
+function onOverview(args){
+    args.object.page.frame.navigate("overview/overview-page");
 }
 
-
+/**
+ * Jump to summary dialog, when hitting summary wheel button on top of main page
+ * @param {*} args 
+ */
+function onSummary(args){
+    args.object.page.frame.navigate("summary/summary-page");
+}
 
 /* maybe use better random than Math.random
 */
@@ -122,6 +137,7 @@ function create_uuid()
 }
 
 exports.onSummary = onSummary;
+exports.onOverview = onOverview;
 exports.onLoaded = onLoaded;
 exports.onTapPlus = onTapPlus;
 exports.onSettings = onSettings;

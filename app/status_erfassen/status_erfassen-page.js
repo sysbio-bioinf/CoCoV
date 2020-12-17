@@ -501,9 +501,6 @@ function transmitDataToServer(vm)
 				body: JSON.stringify(dat)
 			}).then((r) => r.json())
 			.then((response) => {
-				//TODO catch response as key, here
-				// console.log("Response : " + JSON.stringify(response));
-				// console.log("Response : " + response["data"]["createdAt"]);
 				if (response["data"]["createdAt"] != null) {
 					resolve(true);
 				} else {

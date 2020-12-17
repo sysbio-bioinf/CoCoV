@@ -85,6 +85,8 @@
     "notificationTitle": "Notification",
     "notificationBody": "Do you wish to make an entry today?",
     "dateForwardBtn": "Next",
-    "dateBackBtn": "Previous"   
+    "dateBackBtn": "Previous",
+    "accessionCodeLabel": "Code: ",
+    "dataDeletedAlert": "Data was deleted successfully."   
     
 }

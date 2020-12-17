@@ -10,7 +10,8 @@ import { setBoolean, hasKey, getNumber, getBoolean, setNumber, setString, getStr
 import { isAndroid, isIos} from "tns-core-modules/platform";
 //import { Rsa, RsaHashAlgorithm } from 'nativescript-rsa';
 const tools = require("../tools/tools.js");   // full require needed for 'activateHyphenation', does not work with partial 'import'
-
+var database = require("../database/databaseInterface");
+const frameModule = require("tns-core-modules/ui/frame");
 /**
  * Load data from global settings 
  * */
@@ -107,6 +108,12 @@ function onNavigatingTo(args) {
         tools.setAppSetting("userVaccine","string",vaccines[args.value]);
     });
 
+    //listeners for access code
+    const accCodeLabel = page.getViewById("accessionCodeField");
+    accCodeLabel.on("textChange", (args) => {
+        tools.setAppSetting("accCode","string",args.value);
+    });
+    
 
     page.bindingContext.set("openImprint", openImprint);
     page.bindingContext.set("openDataSecurity", openDataSecurity);
@@ -114,16 +121,48 @@ function onNavigatingTo(args) {
 
 function onLoaded(args) {
    tools.activateHyphenation(args.object);
-}
 
-/**
- * Undo overwritting of android back button
- * @param {} args 
- */
-function onUnloaded(args) {
-    txt2speech.on("checkedChange", function() {});
-    voicePicker.on("selectedIndexChange", function() {});
-    therapyPicker.on("selectedIndexChange", function() {});
+   const page = args.object;
+   const agePicker = page.getViewById("agePicker");
+    //load pre-set age if existing
+    if (hasKey("userAge")) {
+        const option = tools.getAppSetting("userAge","number");
+        page.bindingContext.set("ageIndex", option);
+        
+    } 
+    tools.setAppSetting("userAge","number",agePicker.selectedIndex);
+    //----------initialize sex picker------------
+    const sexPicker = page.getViewById("sexPicker");
+    //load pre-set age if existing
+    if (hasKey("userSex")) {
+        const option = tools.getAppSetting("userSex","number");
+        page.bindingContext.set("sexIndex", option);
+        
+    } 
+    tools.setAppSetting("userSex","number",sexPicker.selectedIndex);
+
+
+
+    //----------initialize vaccine picker------------
+    const vaccinePicker = page.getViewById("vaccinePicker");
+    var vaccines = page.bindingContext.get("vaccinePickerItems");
+    //load pre-set age if existing
+    if (hasKey("userVaccine")) {
+        var vaccines = page.bindingContext.get("vaccinePickerItems");
+        const option = tools.getAppSetting("userVaccine","string");
+        page.bindingContext.set("vaccineIndex", page.bindingContext.get("vaccinePickerItems").indexOf(option));
+        
+    }
+    tools.setAppSetting("userVaccine","string",vaccines[vaccinePicker.selectedIndex]);
+
+    //--------initialize accessCode view-------
+    if (hasKey("accCode")) {
+        const option = tools.getAppSetting("accCode","string");
+        page.bindingContext.set("accessionCode", option); 
+    }
+
+
+    
 }
 
 function onDrawerButtonTap(args) {
@@ -142,15 +181,6 @@ function openDataSecurity(args)
     
     args.object.page.frame.navigate("datenschutz/datenschutz-page");
 }
-/*
-Set configuration for text to speech option in global settings file
-*/
-function onCheckedChange(args) {
-    const vm = args.object.bindingContext;
-    //console.log(vm.get("txt2speech"));
-    setBoolean("Text2Speech", vm.get("txt2speech"));
-}
-
 
 /**
  * Store settings.
@@ -161,10 +191,15 @@ function onCheckedChange(args) {
  */
 function onStoreSettings(args)
 {
-    if(!tools.getAppSetting("isSet", "boolean"))
+    if(!tools.getAppSetting("isSet", "boolean")){
         args.object.page.frame.navigate("preconditions/preconditions-page");   
+        tools.transmitMasterData();
+    }
     else
+    {
         args.object.page.frame.navigate("home/home-page");   
+        tools.transmitMasterData();
+    }
 }
 
 function onRemoveData(args)
@@ -181,29 +216,41 @@ function onRemoveData(args)
         if(result)
         {
             //create bcrypt hash, based on given secret
-            hashedPassword(tools.getAppSetting("secret", "string"), tools.getAppSetting("salt", "number")).then((passwordHash, err) => {
-                tools.readTransmissionInfo();
-                fetch(tools.getAppSetting("server", "string") + "/apikeys", {
-                method: "POST",
-                headers: {"x-auth-token": passwordHash },
-                body: JSON.stringify({})
-                }).then((r) => r.json())
-                .then((response) => {
-                    //set UUID 
-                    const result = response["data"]["id"];
-                    tools.setAppSetting("UUID", "string", result);
-                }).catch((e) => {
-                    console.log("Error: " + e);
-                    page.bindingContext.set("agreementText", global.guiStrings[0]["awaitUUID"]);
-                });
+            fetch(tools.getAppSetting("server", "string") + "/apikeys/" + tools.getAppSetting("UUID", "string"), {
+            method: "DELETE",
+            headers: {},
+            body: JSON.stringify({})
+            })//.then((r) => r.json())
+            .then((response) => {
+                console.log(response);
+                //set UUID 
+                //delet UUID and reset agreement
+                if(response["status"] === 204){
+                    console.log(response);
+                    const appSettings = require("tns-core-modules/application-settings");
+                    appSettings.remove("UUID");
+                    appSettings.remove("latestEntry");
+                    appSettings.setBoolean("completed",false);
+                    tools.setAppSetting("isAgreed", "boolean", false);
+                    database.removeData();
+                    
+                    //shows dialog and switch back to home 
+                    tools.showDataDeletedAlert().then( (resolved) => {
+                        frameModule.topmost().navigate("home/home-page");
+                    });
+                }
+                else 
+                {
+                    tools.showCommunicationAlert();
+                }
             
-                tools.setAppSetting("isAgreed", "boolean", true);
-                
-                if(!tools.getAppSetting("isSet", "boolean"))
-                    frameModule.topmost().navigate("settings/settings-page");
-                else
-                    frameModule.topmost().navigate("home/home-page");
-            }).catch(err => {console.log("not hashed, " + err)});
+            }).catch((e) => {
+                console.log("Error: " + e);
+                tools.showCommunicationAlert();
+            });
+        
+            
+            
         }
     }
     );
@@ -215,13 +262,14 @@ function onRemoveData(args)
 function initializeAgePicker(vm) {
     //init kg picker
     var ageItems = new Array();
-    var ageOffset = 0;
-    for (var i = ageOffset; i <= 350; i++) {
+    var ageOffset = 18;
+    for (var i = ageOffset; i <= 95; i++) {
         ageItems.push(i);
     }
     vm.set("ageItems", ageItems);
-    vm.set("ageIndex", 25);
+    vm.set("ageIndex", 12);
     vm.set("ageOffset", ageOffset);
+    tools.setAppSetting("ageOffset", "number", ageOffset);
     vm.set("ageHeight", 80);
 
 }
@@ -232,30 +280,13 @@ const _onRemoveData = onRemoveData;
 export { _onRemoveData as onRemoveData};
 const _onStoreSettings = onStoreSettings;
 export { _onStoreSettings as onStoreSettings };
-const _onCheckedChange = onCheckedChange;
-export { _onCheckedChange as onCheckedChange };
 const _onNavigatingTo = onNavigatingTo;
 export { _onNavigatingTo as onNavigatingTo };
 const _onDrawerButtonTap = onDrawerButtonTap;
 export { _onDrawerButtonTap as onDrawerButtonTap };
-
-/* exports.openImprint = openImprint;
-exports.openDataSecurity = openDataSecurity;
-//exports.onLoaded = onLoaded;
-const _onLoaded = onLoaded;
-export { _onLoaded as onLoaded };
- */
-
-
-//exports.openImprint = openImprint;
 const _openImprint = openImprint;
 export { _openImprint as openImprint };
-//exports.openDataSecurity = openDataSecurity;
 const _openDataSecurity = openDataSecurity;
 export { _openDataSecurity as openDataSecurity };
-//exports.onUnloaded = onUnloaded;
-//const _onUnloaded = onUnloaded;
-//export { _onUnloaded as onUnloaded };
-//exports.onLoaded = onLoaded;
 const _onLoaded = onLoaded;
 export { _onLoaded as onLoaded };

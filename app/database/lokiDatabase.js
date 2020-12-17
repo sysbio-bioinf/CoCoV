@@ -49,6 +49,19 @@ class Database {
     }
 
     /**
+     * remove collection from database
+     * 
+     */
+    removeCollection()
+    {
+        return new Promise(function(resolve,reject) { this.db.loadDatabase({},function() {
+            this.db.removeCollection("health");
+            resolve(true);
+        });}
+        );
+    }
+
+    /**
      * Transmit requested data as promise 
      * Criteria can be used to specify the data which should be extracted from the database
      */

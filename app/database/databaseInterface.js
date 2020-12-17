@@ -26,6 +26,17 @@ const Database = require("./lokiDatabase");
 }
 
 /**
+  * Transmit newly generated data 
+  * @param {array} data 
+  */
+ function removeData() 
+ {
+    
+    var loki = new Database("database.db");
+    return loki.removeCollection();
+}
+
+/**
  * Parse data received by database to array of health records
  * @param {Object} data 
  */
@@ -55,6 +66,7 @@ function hasEffect(dbase, sideeffect)
     return Database.hasLokiEffect(dbase,sideeffect);
 }
 
+exports.removeData = removeData; 
 exports.hasEffect = hasEffect;
 exports.requestData = requestData;
 exports.transmitData = transmitData;

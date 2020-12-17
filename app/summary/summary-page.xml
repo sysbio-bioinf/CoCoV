@@ -1,11 +1,11 @@
 <Page class="page my-page" navigatingTo="onNavigatingTo" marginTop="30" navigatingFrom="onNavigatingFrom" loaded="onLoaded" unloaded="onUnloaded" xmlns="http://schemas.nativescript.org/tns.xsd">
     <GridLayout rows="auto,auto, auto" cols="*, *, *">
-        <StackLayout row="0" col="0" colSpan="3" orientation="horizontal" width="100%" style="width:100%">
-        <Button id="dateBackBtn" width="15%" text="{{ dateBackBtn }}" onTap="onBack" class="button text-left">
+        <StackLayout row="0" col="0" colSpan="3" orientation="horizontal" width="100%" style="width:100%" class="controlbar">
+        <Button id="dateBackBtn" width="20%" text="{{ dateBackBtn }}" onTap="onBack" class="button text-left">
         </Button>
-        <Label id="actionLabel" width="70%" text="{{ actionTabLabel }}" class="summary-header text-center">
+        <Label id="actionLabel" width="60%" text="{{ actionTabLabel }}" class="summary-header text-center">
         </Label>
-        <Button id="dateForwardBtn" width="15%" text="{{ dateForwardBtn }}" onTap="onForward" class="button text-right">
+        <Button id="dateForwardBtn" width="20%" text="{{ dateForwardBtn }}" onTap="onForward" class="button text-right">
         </Button>
         </StackLayout>
         <ScrollView row="1" col="0" colSpan="3" dock="right" id="summaryScrollView" scrollBarIndicatorVisible="false">
