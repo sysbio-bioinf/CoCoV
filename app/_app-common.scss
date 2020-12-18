@@ -73,12 +73,12 @@
     vertical-align: middle;
     color: rgb(30,30,30);
     background-color: rgba(226, 238, 240, 0.788);
-  //  border-radius: 15;
+    border-radius: 15;
     font-size: 35;
     margin-top: 5;
     min-height: 242;
-    margin-left: -10;
-    margin-right: -10;
+    margin-left: 10;
+    margin-right: 10;
     margin-bottom: 20;
     padding: 10 10 10 10;
     border-color: rgb(178, 189, 202);
@@ -207,7 +207,7 @@
 }
 
 .my-button-confirm {
-    background-color: rgba(76, 154, 168, 0.76);
+    background-color: rgb(76, 154, 168);
     //background-color: #4e9ce9;
       border-radius: 25;
       color: black;
@@ -222,7 +222,7 @@
   }
 
   .my-button-remove {
-    background-color: rgba(150, 0, 0, 0.76);
+    background-color: rgb(150, 0, 0);
     //background-color: #4e9ce9;
       border-radius: 25;
       color: black;
@@ -254,6 +254,16 @@
 .my-button-selected {
         border: 2px solid rgb(100,100,100);
         margin-top: 10;
+}
+
+.my-home-btn{
+    z-index: 0;
+    color: rgb(21, 158, 182);
+    background-color: white;
+}
+
+.my-home-label {
+    font-size: 18;
 }
 
 .my-button-diary {

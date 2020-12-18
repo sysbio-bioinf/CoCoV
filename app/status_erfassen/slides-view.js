@@ -1,5 +1,6 @@
 
 const appSettings = require("tns-core-modules/application-settings");
+const { slide } = require("./slides/slideVaccDose");
 
 function getSlides(currentTab) {
     let builder = require("ui/builder");
@@ -24,6 +25,8 @@ function getSlides(currentTab) {
         var row = new ItemSpec(1, GridUnitType.STAR);
         slides.forEach((element, i) => {
             GridLayout.setColumn(element, 0);
+            var lab = element.getViewById("questionLabel");
+            console.log("Label : " + lab);
             if (i != currentTab)
             { 
                 //element.opacity = 0;
@@ -33,7 +36,6 @@ function getSlides(currentTab) {
         });
         gridLayout.addRow(row);
         });
-
     slidesView = gridLayout;
     slidesView.noTabs = slides.length;
 

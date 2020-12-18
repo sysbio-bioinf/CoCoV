@@ -12,6 +12,7 @@ function onNavigatingTo(args) {
     global.guiStringsLoaded.then(function (value) {
         tools.bindGuiStrings(page.bindingContext,0,1);
     });
+
 }
 
 function onLoaded(args) {

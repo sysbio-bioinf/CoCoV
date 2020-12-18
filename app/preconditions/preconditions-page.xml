@@ -1,8 +1,8 @@
-<Page navigatingTo="onNavigatingTo" actionBarHidden="true" class="my-page" loaded="onLoaded" xmlns="http://schemas.nativescript.org/tns.xsd">
-
+<Page navigatingTo="onNavigatingTo" class="my-page" loaded="onLoaded" xmlns="http://schemas.nativescript.org/tns.xsd">
+<ActionBar title="{{ preconditionsLabel }}">
+</ActionBar>
     <ScrollView>
         <GridLayout id="preconditionsGrid" rows="auto, auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto" cols="auto,auto">
-            <Label row="0" text="{{ preconditionsLabel }}" horizontalAlignment="stretch"></Label>
             <Label row="1" col="0" text="{{ rheumaticLabel }}" horizontalAlignment="left" class="switch-label"></Label> 
             <Switch row="1" col="1" id="preconditionSwitch1" checked="{{ rheumaticChecked }}" isEnabled="true" horizontalAlignment="right" class="my-switch" />
             <Label row="2" col="0" text="{{ hypertonusLabel }}" horizontalAlignment="left" class="switch-label"></Label> 

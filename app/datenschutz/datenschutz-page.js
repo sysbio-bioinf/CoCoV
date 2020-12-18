@@ -35,7 +35,7 @@ function onDrawerButtonTap(args) {
  */
 function backToHome(args) {
     
-    frameModule.topmost().navigate("home/home-page");
+    frameModule.topmost().navigate("settings/settings-page");
 
 }
 

@@ -25,6 +25,8 @@
     "removeDialogCancel": "Nein",
     "connectionErrorAlert": "Verbindungsfehler, bitte probieren Sie es später erneut",
     "transferPageTitle": "Datenübertragung",
+    "summaryPageTitle": "Tagebuch",
+    "overviewPageTitle": "Übersicht",
     "settingsPageTitle": "Einstellungen",
     "imprintPageTitle": "Impressum",
     "dataSecurityPageTitle": "Datenschutz",
@@ -110,5 +112,6 @@
     "dataDeletedAlert": "Daten wurden erfolgreich gelöscht.",
     "noDataToDisplay": "Keine Daten vorhanden",
     "confirmPreconditions": "Speichern",
-    "noUUID": "Keine Server Registrierung vorhanden, bitte aktzeptieren Sie die Teilnahmevereinbarungen."
+    "noUUID": "Keine Server Registrierung vorhanden, bitte aktzeptieren Sie die Teilnahmevereinbarungen.",
+    "preconditionsLabel": "Vorerkrankungen"
 }

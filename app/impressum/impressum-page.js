@@ -15,6 +15,7 @@ function onNavigatingTo(args) {
         console.log("deutsch")
         page.bindingContext.set("imprintHtml", "~/impressum/imprintDE.html");
     }
+
 }
 
 function onLoaded(args) {
@@ -30,12 +31,12 @@ function onDrawerButtonTap(args) {
  * Function for software-based back button in android 
  *
  */
-function backToSettings(args) {
+function backToHome(args) {
     
-    frameModule.topmost().navigate("home/home-page");
+    frameModule.topmost().navigate("settings/settings-page");
 
 }
-exports.backToSettings = backToSettings;
+exports.backToHome = backToHome;
 exports.onNavigatingTo = onNavigatingTo;
 exports.onLoaded = onLoaded;
 exports.onDrawerButtonTap = onDrawerButtonTap;
