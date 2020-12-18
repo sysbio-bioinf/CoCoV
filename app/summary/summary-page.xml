@@ -2,16 +2,20 @@
 <ActionBar title="{{ summaryLabel }}">
   <NavigationButton  text="{{ backButtonText }}" android.systemIcon="ic_menu_back" tap="backToHome"></NavigationButton>
 </ActionBar>
-    <GridLayout rows="auto,auto, auto" cols="*, *, *">
+    <GridLayout rows="auto,auto,auto, auto" cols="*, *, *">
         <StackLayout row="0" col="0" colSpan="3" orientation="horizontal" width="100%" style="width:100%" class="controlbar">
-        <Button id="dateBackBtn" text="{{ dateBackBtn }}" onTap="onBack" class="button text-left texyt-put-left switch-label">
+        <Button id="dateBackBtn" text="{{ dateBackBtn }}" onTap="onBack" class="button button-navi text-left texyt-put-left switch-label">
         </Button>
         <Label id="actionLabel" text="{{ actionTabLabel }}" width="75%" justifyContent="space-between" class="summary-header text-center">
         </Label>
-        <Button id="dateForwardBtn" text="{{ dateForwardBtn }}" onTap="onForward" class="button text-right text-put-right switch-label">
+        <Button id="dateForwardBtn" text="{{ dateForwardBtn }}" onTap="onForward" class="button button-navi text-right text-put-right switch-label">
         </Button>
         </StackLayout>
-        <ScrollView row="1" col="0" colSpan="3" dock="right" id="summaryScrollView" scrollBarIndicatorVisible="false">
+        <StackLayout row="1" col="0" colSpan="3" orientation="horizontal" width="100%" style="width:100%" class="controlbar">
+        <Label id="sepa_nav" text="  " width="100%" class="nav-bottom-border">
+        </Label>
+         </StackLayout>
+        <ScrollView row="2" col="0" colSpan="3" dock="right" id="summaryScrollView" scrollBarIndicatorVisible="false">
         <GridLayout  rows="auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto, auto, auto, auto, auto, auto" cols="*,*" marginLeft="5" marginRight="5">
             <FlexboxLayout row="0" flexWrap="wrap" marginTop="4">
                 <Label text="{{ vaccDoseShort }}" fontSize="{{ mySizeSummary }}" fontWeight="bold" textWrap="true" marginTop="0" class="summary-header text-left" />

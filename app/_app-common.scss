@@ -402,12 +402,14 @@
 .text-put-left{
     align-self: flex-start;
     text-align: left;
+    margin-left: 5;
 }
 
 
 .text-put-right{
     align-self: flex-end;
     text-align: right;
+    margin-right: 5;
 }
 
 .weight-separator {
@@ -416,4 +418,24 @@
 
 .weight-label {
     margin-left: 10px;
+}
+
+.button-navi {
+    background-color:rgb(219, 250, 255);
+    padding-top: 5;
+    padding-bottom: 5;
+    padding-left: 5;
+    padding-right: 5;
+}
+
+.nav-bottom-border{
+    border-width: 1;
+    border-bottom-color: rgb(128, 202, 236);
+    margin-top: -4;
+    padding-top: -10;
+}
+
+.overview-item {
+    padding-left: 15;
+    margin-left: 5;
 }
