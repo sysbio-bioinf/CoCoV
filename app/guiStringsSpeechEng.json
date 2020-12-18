@@ -6,9 +6,9 @@
 
     "injectionPainQuery": "Do you have pain at the injection site?",
     "injectionPainAnswer0": "No pain",
-    "injectionPainAnswer1": "Yes, does not interfere with activity",
-    "injectionPainAnswer2": "Yes, interferes with activity",
-    "injectionPainAnswer3": "Yes, prevents daily routine activity",
+    "injectionPainAnswer1": "Yes, mild (normal activity)",
+    "injectionPainAnswer2": "Yes, moderate (limited activity)",
+    "injectionPainAnswer3": "Yes, severe ( daily routine not possible)",
     "injectionPainAnswer4": "Emergency room visit",
  
     "rednessQuery": "Is there a redness at the injection site? (if yes, diameter)",
@@ -27,17 +27,14 @@
 
     "fatigueQuery": "Are you overly tired?",
     "fatigueAnswer0": "No",   
-    "fatigueAnswer1": "Yes, does not interfere with activity",
-    "fatigueAnswer2": "Yes, interferes with activity",   
-    "fatigueAnswer3": "Yes, prevents daily routine activity",  
+    "fatigueAnswer1": "Yes, normal activity",
+    "fatigueAnswer2": "Yes, limited activity",   
+    "fatigueAnswer3": "Yes, limited self care",  
     "fatigueAnswer4": "Emergency room visit",
  
     "chillsQuery": "Do you have chills?",
     "chillsAnswer0": "No",
-    "chillsAnswer1": "Yes, does not interfere with activity",
-    "chillsAnswer2": "Yes, interferes with activity",
-    "chillsAnswer3": "Yes, prevents daily routine activity",
-    "chillsAnswer4": "Emergency room visit",
+    "chillsAnswer1": "Yes",
 
     "headacheQuery": "Do you have excessive headache?",
     "headacheAnswer0": "No",

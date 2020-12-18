@@ -1,7 +1,13 @@
 <Page class="page my-page" navigatingTo="onNavigatingTo" xmlns="http://schemas.nativescript.org/tns.xsd" actionBarHidden="true" loaded="onLoaded" class="my-home">
     <DockLayout stretchLastChild="true"> 
+        
         <StackLayout orientation="horizontal" dock="top" width="100%">
-        <Button width="40%" row="0" col="0" text="&#xf274;  " class="fas t-36 my-home-btn" style="font-weight: normal;" horizontalAlignment="right" tap="onSummary"></Button>
+        <Button width="40%" row="0" col="0"  class="fas t-36 my-home-btn" style="font-weight: normal;" horizontalAlignment="right" tap="onSummary">
+        <FormattedString>
+        <Span text="&#xf274;  "></Span>
+        <Span text=" {{ HomeSummaryText }}"></Span>
+        </FormattedString>
+        </Button>
         <Button width="20%" row="0" col="0" text="&#xf15c;  " class="fas t-36 my-home-btn" style="font-weight: normal;" horizontalAlignment="center" tap="onOverview"></Button>
         <Button width="40%" row="0" col="0" text="&#xf013;  " class="my-home-btn fas t-36" style="font-weight: normal;" horizontalAlignment="left" tap="onSettings"></Button>
         </StackLayout>
