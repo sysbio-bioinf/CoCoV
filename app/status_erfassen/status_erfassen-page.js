@@ -323,7 +323,7 @@ function switchTab(args) {
 	appSettings.setString("healthRecord", JSON.stringify(vm.healthRecord));
 	
 	//jump back to summary if already completed
-	if (appSettings.getBoolean("completed") && tabSelectedIndex != 13) {
+	if (appSettings.getBoolean("completed") && tabSelectedIndex != summaryIdx) {
 		initSummary(vm, true, tabSelectedIndex);
 		vm.jumpToLast();
 	}

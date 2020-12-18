@@ -33,13 +33,13 @@ function onDrawerButtonTap(args) {
  * Function for software-based back button in android 
  *
  */
-function backToSettings(args) {
+function backToHome(args) {
     
-    frameModule.topmost().navigate("settings/settings-page");
+    frameModule.topmost().navigate("home/home-page");
 
 }
 
-exports.backToSettings = backToSettings;
+exports.backToHome = backToHome;
 exports.onNavigatingTo = onNavigatingTo;
 exports.onLoaded = onLoaded;
 exports.onDrawerButtonTap = onDrawerButtonTap;

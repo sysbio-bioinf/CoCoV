@@ -1,6 +1,6 @@
 <Page class="page" navigatingTo="onNavigatingTo" loaded="onLoaded" xmlns="http://schemas.nativescript.org/tns.xsd">
-<ActionBar title="Impressum">
-  <NavigationButton  text="Zurück" android.systemIcon="ic_menu_back" tap="backToSettings"></NavigationButton>
+<ActionBar title="{{ imprintLabel }}">
+  <NavigationButton  text="Zurück" android.systemIcon="ic_menu_back" tap="backToHome"></NavigationButton>
 </ActionBar>
 <ScrollView>
 <WebView id="imprintView" src="{{ imprintHtml }}" ></WebView>

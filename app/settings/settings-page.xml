@@ -1,5 +1,7 @@
-<Page navigatingTo="onNavigatingTo" actionBarHidden="true" class="my-page" loaded="onLoaded" xmlns="http://schemas.nativescript.org/tns.xsd">
-
+<Page navigatingTo="onNavigatingTo" class="my-page" loaded="onLoaded" xmlns="http://schemas.nativescript.org/tns.xsd">
+<ActionBar title="{{ settingsPageTitle }}">
+  <NavigationButton  id="backSettingsBtn" text="Zurück" android.systemIcon="ic_menu_back" tap="backToHome"></NavigationButton>
+</ActionBar>
     <ScrollView>
         <GridLayout columns="*,auto" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto" class="settings-container">
             <GridLayout row="1" col="0" colSpan="2" columns="*,auto" rows="auto, auto" class="settings-subcontainer">

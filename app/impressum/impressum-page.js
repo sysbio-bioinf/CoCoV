@@ -32,7 +32,7 @@ function onDrawerButtonTap(args) {
  */
 function backToSettings(args) {
     
-    frameModule.topmost().navigate("settings/settings-page");
+    frameModule.topmost().navigate("home/home-page");
 
 }
 exports.backToSettings = backToSettings;

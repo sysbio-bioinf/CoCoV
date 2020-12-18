@@ -123,6 +123,11 @@ function onLoaded(args) {
    tools.activateHyphenation(args.object);
 
    const page = args.object;
+    //enable back to home button after having settings set for the first time
+    if (!hasKey("isSet")) {
+        const settingsBtn = page.getViewById("backSettingsBtn");
+        settingsBtn.visibility = "hidden";
+    }
    const agePicker = page.getViewById("agePicker");
     //load pre-set age if existing
     if (hasKey("userAge")) {
@@ -278,6 +283,18 @@ function initializeAgePicker(vm) {
 
 }
 
+/**
+ * Function for software-based back button in android 
+ *
+ */
+function backToHome(args) {
+    
+    frameModule.topmost().navigate("home/home-page");
+
+}
+
+const _backToHome = backToHome;
+export { _backToHome as backToHome};
 const _initializeAgePicker = initializeAgePicker;
 export { _initializeAgePicker as initializeAgePicker};
 const _onRemoveData = onRemoveData;
