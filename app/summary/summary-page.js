@@ -21,9 +21,7 @@ function onNavigatingTo(args) {
 	dbEntries = database.requestData(0);
 	var vm = args.object.bindingContext;
 	global.guiStringsLoaded.then(function(value) {
-		console.log("In here: " + true);
 		tools.bindGuiStrings(vm,0,tools.getAppSetting("languageID", "number"));
-		
 	});
 	dbEntries.then(function (db) {
 		vm.length = db.data.length;
@@ -34,7 +32,7 @@ function onNavigatingTo(args) {
 				frameModule.topmost().navigate("home/home-page");
 			});
 		}
-		initSummary(page, vm,db.data[vm.currentSlideNum]);
+		initSummary(page, vm,db.data[vm.length - 1]);
 });
 
 }
