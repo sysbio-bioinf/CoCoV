@@ -3,31 +3,31 @@
     <ScrollView>
         <GridLayout id="preconditionsGrid" rows="auto, auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto" cols="auto,auto">
             <Label row="0" text="{{ preconditionsLabel }}" horizontalAlignment="stretch"></Label>
-            <Label row="1" col="0" text="{{ rheumaticLabel }}" horizontalAlignment="left"></Label> 
+            <Label row="1" col="0" text="{{ rheumaticLabel }}" horizontalAlignment="left" class="switch-label"></Label> 
             <Switch row="1" col="1" id="preconditionSwitch1" checked="{{ rheumaticChecked }}" isEnabled="true" horizontalAlignment="right" class="my-switch" />
-            <Label row="2" col="0" text="{{ hypertonusLabel }}" horizontalAlignment="left"></Label> 
+            <Label row="2" col="0" text="{{ hypertonusLabel }}" horizontalAlignment="left" class="switch-label"></Label> 
             <Switch row="2" col="1" id="preconditionSwitch2" checked="{{ hypertonusChecked }}" isEnabled="true" horizontalAlignment="right" class="my-switch" />
-            <Label row="3" col="0" text="{{ angiopathyLabel }}" horizontalAlignment="left"></Label> 
+            <Label row="3" col="0" text="{{ angiopathyLabel }}" horizontalAlignment="left" class="switch-label"></Label> 
             <Switch row="3" col="1" id="preconditionSwitch3" checked="{{ angiopathyChecked }}" isEnabled="true" horizontalAlignment="right" class="my-switch" />
-            <Label row="4" col="0" text="{{ tumorLabel }}" horizontalAlignment="left"></Label> 
+            <Label row="4" col="0" text="{{ tumorLabel }}" horizontalAlignment="left" class="switch-label"></Label> 
             <Switch row="4" col="1" id="preconditionSwitch4" checked="{{ tumorChecked }}" isEnabled="true" horizontalAlignment="right" class="my-switch" />
-            <Label row="5" col="0" text="{{ lungDiseaseLabel }}" horizontalAlignment="left"></Label> 
+            <Label row="5" col="0" text="{{ lungDiseaseLabel }}" horizontalAlignment="left" class="switch-label"></Label> 
             <Switch row="5" col="1" id="preconditionSwitch5" checked="{{ lungDiseaseChecked }}" isEnabled="true" horizontalAlignment="right" class="my-switch" />
-            <Label row="6" col="0" text="{{ cardiacInsufficiencyLabel }}" horizontalAlignment="left"></Label> 
+            <Label row="6" col="0" text="{{ cardiacInsufficiencyLabel }}" horizontalAlignment="left" class="switch-label"></Label> 
             <Switch row="6" col="1" id="preconditionSwitch6" checked="{{ cardiacInsufficiencyChecked }}" isEnabled="true" horizontalAlignment="right" class="my-switch" />
-            <Label row="7" col="0" text="{{ diabetesLabel }}" horizontalAlignment="left"></Label> 
+            <Label row="7" col="0" text="{{ diabetesLabel }}" horizontalAlignment="left" class="switch-label"></Label> 
             <Switch row="7" col="1" id="preconditionSwitch7" checked="{{ diabetesChecked }}" isEnabled="true" horizontalAlignment="right" class="my-switch" />
-            <Label row="8" col="0" text="{{ leukaemiaLabel }}" horizontalAlignment="left"></Label> 
+            <Label row="8" col="0" text="{{ leukaemiaLabel }}" horizontalAlignment="left" class="switch-label"></Label> 
             <Switch row="8" col="1" id="preconditionSwitch8" checked="{{ leukaemiaChecked }}" isEnabled="true" horizontalAlignment="right" class="my-switch" />
-            <Label row="9" col="0" text="{{ coronaryLabel }}" horizontalAlignment="left"></Label> 
+            <Label row="9" col="0" text="{{ coronaryLabel }}" horizontalAlignment="left" class="switch-label"></Label> 
             <Switch row="9" col="1" id="preconditionSwitch9" checked="{{ coronaryChecked }}" isEnabled="true" horizontalAlignment="right" class="my-switch" />
-            <Label row="10" col="0" text="{{ hepatopathyLabel }}" horizontalAlignment="left"></Label> 
+            <Label row="10" col="0" text="{{ hepatopathyLabel }}" horizontalAlignment="left" class="switch-label"></Label> 
             <Switch row="10" col="1" id="preconditionSwitch10" checked="{{ hepatopathyChecked }}" isEnabled="true" horizontalAlignment="right" class="my-switch" />
-            <Label row="11" col="0" text="{{ kidneyLabel }}" horizontalAlignment="left"></Label> 
+            <Label row="11" col="0" text="{{ kidneyLabel }}" horizontalAlignment="left" class="switch-label"></Label> 
             <Switch row="11" col="1" id="preconditionSwitch11" checked="{{ kidneyChecked }}" isEnabled="true" horizontalAlignment="right" class="my-switch" />
-            <Label row="12" col="0" text="{{ ulcerLabel }}" horizontalAlignment="left"></Label> 
+            <Label row="12" col="0" text="{{ ulcerLabel }}" horizontalAlignment="left" class="switch-label"></Label> 
             <Switch row="12" col="1" id="preconditionSwitch12" checked="{{ ulcerChecked }}" isEnabled="true" horizontalAlignment="right" class="my-switch" />
-            <Label row="13" col="0" text="{{ hivLabel }}" horizontalAlignment="left"></Label> 
+            <Label row="13" col="0" text="{{ hivLabel }}" horizontalAlignment="left" class="switch-label"></Label> 
             <Switch row="13" col="1" id="preconditionSwitch13" checked="{{ hivChecked }}" isEnabled="true" horizontalAlignment="right" class="my-switch" />
             <Button row="14" col="0" colSpan="2" id="confirmPreconditionsBtn" text="{{ confirmPreconditions }}" class="my-button-confirm" tap="onStorePreconditions"></Button> 
         </GridLayout>

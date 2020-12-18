@@ -81,7 +81,7 @@
     margin-right: -10;
     margin-bottom: 20;
     padding: 10 10 10 10;
-    border-color: black;
+    border-color: rgb(178, 189, 202);
     border-width: 1;
     //hyphens: auto;
    // height: 25%;
@@ -209,9 +209,12 @@
     //background-color: #4e9ce9;
       border-radius: 25;
       color: black;
-      font-size: 25;
+      font-size: 35;
       margin-top: 5;
+      margin-bottom: 5;
       margin-left: 10;
+      padding-top: 15;
+      padding-bottom: 15;
       margin-right: 10;
      
   }
@@ -289,6 +292,7 @@
 
 .my-switch {
     margin: 10;
+    font-size: 20;
     color: rgb(230,230,230);
 }
 
@@ -366,12 +370,15 @@
     color: rgb(21, 158, 182);
 }
 
-.weight-separator {
-    margin-left: 10px; margin-right: 10px;
-}
+.switch-label{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0,0,0);
+    font-size: 25;
+    margin-top:5;
+    margin-bottom:5;
+    margin-left: 10;
 
-.weight-label {
-    margin-left: 10px;
+
 }
 
 .text-container {
@@ -382,3 +389,11 @@
     padding-right: 4;
 }
 
+
+.weight-separator {
+    margin-left: 10px; margin-right: 10px;
+}
+
+.weight-label {
+    margin-left: 10px;
+}
