@@ -9,6 +9,36 @@ const frameModule = require("tns-core-modules/ui/frame");
 //store loaded data globally
 var dbEntries;
 
+/**
+ * Load summary with overview over previous entries
+ * @param {*} args 
+ */
+function onNavigatingTo(args) {
+	const page = args.object;
+	page.bindingContext = new SummaryViewModel();
+	var vm = args.object.bindingContext;
+	// get all entries from database
+	dbEntries = database.requestData(0);
+	var vm = args.object.bindingContext;
+	global.guiStringsLoaded.then(function(value) {
+		console.log("In here: " + true);
+		tools.bindGuiStrings(vm,0,tools.getAppSetting("languageID", "number"));
+	
+	});
+	dbEntries.then(function (db) {
+		vm.length = db.data.length;
+
+		if(db.data.length === 0)
+		{
+			tools.showNoDataAlert().then( (resolve) => {
+				frameModule.topmost().navigate("home/home-page");
+			});
+		}
+		initSummary(page, vm,db.data[vm.currentSlideNum]);
+});
+
+}
+
 
 function onLoaded(args) {
 	const page = args.object;
@@ -72,31 +102,6 @@ function onBack(args)
 }
 
 
-function onNavigatingTo(args) {
-	const page = args.object;
-	page.bindingContext = new SummaryViewModel();
-	var vm = args.object.bindingContext;
-	// get all entries from database
-	dbEntries = database.requestData(0);
-	var vm = args.object.bindingContext;
-	global.guiStringsLoaded.then(function(value) {
-		console.log("In here: " + true);
-		tools.bindGuiStrings(vm,0,tools.getAppSetting("languageID", "number"));
-	
-	});
-	dbEntries.then(function (db) {
-		vm.length = db.data.length;
-
-		if(db.data.length === 0)
-		{
-			tools.showNoDataAlert().then( (resolve) => {
-				frameModule.topmost().navigate("home/home-page");
-			});
-		}
-		initSummary(page, vm,db.data[vm.currentSlideNum]);
-});
-
-}
 
 /**
  * Initialize GridLayout which summarizes answers in the last tab

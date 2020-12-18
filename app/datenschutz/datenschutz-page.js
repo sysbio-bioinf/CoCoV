@@ -6,7 +6,18 @@ const tools = require("../tools/tools.js");
 function onNavigatingTo(args) {
     const page = args.object;
     page.bindingContext = new PatientendatenViewModel();
-    tools.bindGuiStrings(page.bindingContext,0,tools.getAppSetting("languageID", "number"));
+    global.guiStringsLoaded.then(function (value) {
+        tools.bindGuiStrings(page.bindingContext,0,tools.getAppSetting("languageID", "number"));
+        //load data security statemts based on selected language
+        if(tools.getAppSetting("languageID", "number") === 0){
+            console.log("Datenschutz englisch");
+            page.bindingContext.set("datasecHtml", "~/agreement/Patienteninformation_CoCoV_English.html");
+        }
+        else {
+            console.log("Datenschutz deutsch");
+            page.bindingContext.set("datasecHtml", "~/agreement/Patienteninformation_CoCoV_German.html");
+        }
+    });
 }
 
 function onLoaded(args) {

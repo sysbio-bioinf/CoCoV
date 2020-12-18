@@ -53,8 +53,10 @@ function sendAgreement(args) {
         
         page.bindingContext.set("sendAgreementText", "");
         page.bindingContext.set("isBusy", true);
-        
-        page.getViewById("agreementTextField").visible = "hidden";
+        var agreement = page.getViewById("sendAgreement");
+
+        console.log(agreement);
+        agreement.visibility = "hidden";
         return new Promise((resolve, reject) => {
             bcrypt.hash(password, salt, (err, hash) => {
                 if (err) {

@@ -3,8 +3,9 @@
     <ScrollView row="0" rowSpan="2">
       <WebView id="agreementTextField" src="{{ datasecHtml }}" ></WebView>
     </ScrollView>
-    <Button row="2" id="sendAgreement" text="{{ sendAgreementText }}" class="my-button-confirm"  tap="sendAgreement" ></Button>
     <ActivityIndicator id="acitivityIndicator" row="2" busy="{{ isBusy }}" ></ActivityIndicator>
+    <Button row="2" id="sendAgreement" text="{{ sendAgreementText }}" class="my-button-confirm"  tap="sendAgreement" ></Button>
+    
  </GridLayout>
 </Page>
 

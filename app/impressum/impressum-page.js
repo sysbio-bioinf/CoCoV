@@ -6,7 +6,15 @@ const tools = require("../tools/tools.js");
 function onNavigatingTo(args) {
     const page = args.object;
     page.bindingContext = new PatientendatenViewModel();
-    tools.activateHyphenation(args.object);
+    
+    if(tools.getAppSetting("languageID", "number") === 0){
+        console.log("englisch")
+        page.bindingContext.set("imprintHtml", "~/impressum/imprintENG.html");
+    }
+    else {
+        console.log("deutsch")
+        page.bindingContext.set("imprintHtml", "~/impressum/imprintDE.html");
+    }
 }
 
 function onLoaded(args) {
