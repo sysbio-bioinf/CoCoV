@@ -505,11 +505,9 @@ function transmitDataToServer(vm)
 				if (response["data"]["createdAt"] != null) {
 					resolve(true);
 				} else {
-					console.log("response incorrect: " + response);
 					reject(false);
 				}
 			}).catch((e) => {
-				console.log("Error in connection: " + e);
 				reject(false);
 
 			});

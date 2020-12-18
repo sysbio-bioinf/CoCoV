@@ -1,24 +1,2 @@
 
 <Frame defaultPage="home/home-page"></Frame>
-
-<!--
-<BottomNavigation>
-    <TabStrip marginLeft="8" marginRight="8">
-        <TabStripItem class="navigation__item" >
-            <Label text="neuer Eintrag" />
-            <Image src="font://&#xf02d;" class="fas t-36" style="font-weight: normal;" />
-        </TabStripItem>
-        <TabStripItem class="navigation__item">
-            <Label text="Übersicht" />
-            <Image src="font://&#xf1de;" class="fas t-36" style="font-weight: normal;" />
-        </TabStripItem>
-    </TabStrip>
-
-    <TabContentItem>
-        <Frame defaultPage="home/home-page" />
-    </TabContentItem>
-    <TabContentItem>
-        <Frame defaultPage="settings/settings-page" />
-    </TabContentItem>
-</BottomNavigation>
--->
