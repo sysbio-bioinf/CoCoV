@@ -7,17 +7,15 @@ const appSettings = require("tns-core-modules/application-settings");
 
 application.on(application.launchEvent, (args) => {
     //0 = deutsch , 1 = engl
-    global.guiStringsLoaded = tools.loadGUIStrings(0);
+    global.guiStringsLoaded = tools.loadGUIStrings();
     
 });
 
 application.on(application.suspendEvent, (args) => {
-    tools.stopQrCodeLoop();
 });
 
 application.on(application.resumeEvent, (args) => {
-    //0 = deutsch , 1 = engl
-    global.guiStringsLoaded = tools.loadGUIStrings(0);
+    global.guiStringsLoaded = tools.loadGUIStrings();
     
     
     
