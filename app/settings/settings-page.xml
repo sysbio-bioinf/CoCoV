@@ -4,17 +4,17 @@
 </ActionBar>
     <ScrollView>
         <GridLayout columns="*,auto" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto" class="settings-container">
-            <GridLayout row="1" col="0" colSpan="2" columns="*,auto" rows="auto, auto" class="settings-subcontainer">
+            <GridLayout row="1" col="0" colSpan="2" columns="*,*" rows="auto, auto" class="settings-subcontainer">
                 <Label row="0" col="0" text="{{ accessionCodeLabel }}" textWrap="true" class="settings-label"></Label>
-                <TextField id="accessionCodeField" row="1" col="0" text="{{ accessionCode }}" returnKeyType="done" autocorrect="false" hint="Code" class="my-textField text-center"></TextField>
+                <TextField id="accessionCodeField" row="0" col="1" text="{{ accessionCode }}" returnKeyType="done" autocorrect="false" hint="Code" class="my-textField text-center"></TextField>
             </GridLayout>
-            <GridLayout row="3" colSpan="2" columns="*,auto" rows="auto, auto,auto" class="settings-subcontainer">
+            <GridLayout row="3" colSpan="2" columns="*,*" rows="auto, auto,auto" class="settings-subcontainer">
                 <Label row="0" col="0" text="{{ ageLabelText }}" textWrap="true" class="settings-label" />
-                <ListPicker row="1" items = "{{ ageItems }}" selectedIndex = "{{ ageIndex }}" selectedValue = "{{ ageSelected }}" id="agePicker" height="{{ ageHeight }}" />
+                <ListPicker col="1" items = "{{ ageItems }}" selectedIndex = "{{ ageIndex }}" selectedValue = "{{ ageSelected }}" id="agePicker" height="{{ ageHeight }}" />
             </GridLayout>
-            <GridLayout row="5" colSpan="2" columns="*,auto" rows="auto, auto,auto" class="settings-subcontainer">
+            <GridLayout row="5" colSpan="2" columns="*,*" rows="auto, auto,auto" class="settings-subcontainer">
                 <Label row="0" col="0" text="{{ sexLabelText }}" textWrap="true" class="settings-label" />
-                <ListPicker row="1" items = "{{ sexPickerItems }}" selectedIndex = "{{ sexIndex }}" selectedValue = "{{ sexSelected }}" id="sexPicker"  height="{{ ageHeight }}" />
+                <ListPicker col="1" items = "{{ sexPickerItems }}" selectedIndex = "{{ sexIndex }}" selectedValue = "{{ sexSelected }}" id="sexPicker"  height="{{ ageHeight }}" />
             </GridLayout>
              <GridLayout row="7" colSpan="2" columns="*,auto" rows="auto, auto,auto" class="settings-subcontainer">
                 <Label row="0" col="0" text="{{ vaccineLabelText }}" textWrap="true" class="settings-label" />

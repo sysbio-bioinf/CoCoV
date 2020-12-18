@@ -3,7 +3,7 @@
         
         <StackLayout orientation="horizontal" dock="top" width="100%">
         <StackLayout width="33%" orientation="vertical" horizontalAlignment="right">
-            <Button text="&#xf013;" horizontalAlignment="center" row="0" col="0"  class="fas t-36 my-home-btn" style="font-weight: normal;"  tap="onSummary"></Button>
+            <Button text="&#xf518;" horizontalAlignment="center" row="0" col="0"  class="fas t-36 my-home-btn" style="font-weight: normal;"  tap="onSummary"></Button>
             <Label horizontalAlignment="center" text="{{ summaryPageTitle }}" class="my-home-label"/>
         </StackLayout>
          <StackLayout width="33%" orientation="vertical" horizontalAlignment="center">

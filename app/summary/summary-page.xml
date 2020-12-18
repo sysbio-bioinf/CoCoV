@@ -3,7 +3,7 @@
   <NavigationButton  text="{{ backButtonText }}" android.systemIcon="ic_menu_back" tap="backToHome"></NavigationButton>
 </ActionBar>
     <GridLayout rows="auto,auto,auto, auto" cols="*, *, *">
-        <StackLayout row="0" col="0" colSpan="3" orientation="horizontal" width="100%" style="width:100%" class="controlbar">
+        <StackLayout row="0" col="0" colSpan="3" orientation="horizontal" width="100%" class="controlbar">
         <Button id="dateBackBtn" text="{{ dateBackBtn }}" onTap="onBack" class="button button-navi text-left texyt-put-left switch-label">
         </Button>
         <Label id="actionLabel" text="{{ actionTabLabel }}" width="75%" justifyContent="space-between" class="summary-header text-center">
