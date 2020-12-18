@@ -1,6 +1,6 @@
 <Page class="page" navigatingTo="onNavigatingTo" loaded="onLoaded" xmlns="http://schemas.nativescript.org/tns.xsd" >
 <ActionBar title="{{ dataSecurityPageTitle }}">
-  <NavigationButton text="{{backButtonText}}" android.systemIcon="ic_menu_back" tap="backToHome"></NavigationButton>
+  <NavigationButton text="{{ backButtonText }}" android.systemIcon="ic_menu_back" tap="backToHome"></NavigationButton>
 </ActionBar>
 <ScrollView>
 <WebView id="datasecView" src="{{ datasecHtml }}" ></WebView>

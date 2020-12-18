@@ -666,13 +666,25 @@ function showDataDeletedAlert()
 function showNoDataAlert()
 {
     var dialogs = require("tns-core-modules/ui/dialogs");
-    console.log("Lengt of GUI Strings : " + global.guiStringsEng.length);
     return new Promise( (resolve, reject) => {
     dialogs.alert(global.guiStrings[1]["noDataToDisplay"]).then(function() {
         resolve(true);
 	})});
 }
 
+/**
+ * Show alert when no data is stored / available
+ */
+function showNoUUIDAlert()
+{
+    var dialogs = require("tns-core-modules/ui/dialogs");
+    return new Promise( (resolve, reject) => {
+    dialogs.alert(global.guiStrings[1]["noUUID"]).then(function() {
+        resolve(true);
+	})});
+}
+
+exports.showNoUUIDAlert = showNoUUIDAlert;
 exports.showNoDataAlert = showNoDataAlert;
 exports.showDataDeletedAlert = showDataDeletedAlert;
 exports.showCommunicationAlert = showCommunicationAlert;
