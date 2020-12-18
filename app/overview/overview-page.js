@@ -77,7 +77,7 @@ function hasEffect(collection)
 		col = collection.data[idx];
 		//iterate over keys
 		Object.keys(col).forEach(function(key) {
-			if(!key.includes("$") && isNumeric(col[key]) && (col[key] != 0) && !attrs.includes(key)) //filter keys with $ to remove database-specific attributes
+			if(!key.includes("$") && (isNumeric(col[key]) || key === "event") && (col[key] != 0) && !attrs.includes(key)) //filter keys with $ to remove database-specific attributes
 					attrs.push(key);			
 		});
 	}
@@ -158,6 +158,7 @@ function backToHome(args) {
     frameModule.topmost().navigate("home/home-page");
 
 }
+exports.backToHome = backToHome;
 exports.onForward = onForward;
 exports.onBack = onBack;
 exports.onNavigatingTo = onNavigatingTo;
