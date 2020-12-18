@@ -1,6 +1,6 @@
 <Page navigatingTo="onNavigatingTo" class="my-page" loaded="onLoaded" xmlns="http://schemas.nativescript.org/tns.xsd">
 <ActionBar title="{{ settingsPageTitle }}">
-  <NavigationButton  id="backSettingsBtn" text="Zurück" android.systemIcon="ic_menu_back" tap="backToHome"></NavigationButton>
+  <NavigationButton  id="backSettingsBtn" text="{{ backButtonText }}" android.systemIcon="ic_menu_back" tap="backToHome"></NavigationButton>
 </ActionBar>
     <ScrollView>
         <GridLayout columns="*,auto" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto" class="settings-container">

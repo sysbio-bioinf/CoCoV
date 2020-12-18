@@ -89,7 +89,15 @@ function onTapPlus(args) {
     const button = args.object;
     const page = button.page;
     appSettings.setNumber("currentTab", 0);
-    page.frame.navigate("status_erfassen/status_erfassen-page");
+    //if no UUID is set, get new one from server 
+    if(tools.checkAppSetting("UUID"))
+        page.frame.navigate("status_erfassen/status_erfassen-page");
+    else{
+
+        tools.showNoUUIDAlert().then((resolve) => {
+            page.frame.navigate("agreement/agreement-page");
+        });
+    }
 
 
 

@@ -23,7 +23,7 @@ function onNavigatingTo(args) {
 	global.guiStringsLoaded.then(function(value) {
 		console.log("In here: " + true);
 		tools.bindGuiStrings(vm,0,tools.getAppSetting("languageID", "number"));
-	
+		
 	});
 	dbEntries.then(function (db) {
 		vm.length = db.data.length;
@@ -123,12 +123,18 @@ function initSummary(page, vm, data) {
 	var shortName;
 	var value;
 	var elem;
-	for (i = 0; i < shortNames.length; i++) {
+	for (i = 0; i < shortNames.length - 1; i++) {
 		shortName = shortNames[i];
 		value = hRec[shortName];   // the health record has an additional first column
 		elem = page.getViewById(shortName + "Value");
 		elem.text = global.guiStrings[2][shortName + "Answer" + value];
-    }
+	}
+	//set text in comment
+	var i = shortNames.length - 1;
+	shortName = shortNames[i];
+	value = hRec[shortName];   // the health record has an additional first column
+	elem = page.getViewById(shortName + "Value");
+	elem.text = value;
 }
 
 

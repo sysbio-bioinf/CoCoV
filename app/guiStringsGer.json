@@ -109,5 +109,6 @@
     "summaryLabel": "Zusammenfassung:",
     "dataDeletedAlert": "Daten wurden erfolgreich gelöscht.",
     "noDataToDisplay": "Keine Daten vorhanden",
-    "confirmPreconditions": "Speichern"
+    "confirmPreconditions": "Speichern",
+    "noUUID": "Keine Server Registrierung vorhanden, bitte aktzeptieren Sie die Teilnahmevereinbarungen."
 }

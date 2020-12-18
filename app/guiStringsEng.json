@@ -84,6 +84,7 @@
     "accessionCodeLabel": "Code: ",
     "dataDeletedAlert": "Data was deleted successfully.",
     "noDataToDisplay": "There is no data to display",
-    "confirmPreconditions": "save"  
+    "confirmPreconditions": "save",
+    "noUUID": "No valid registration, please accept the agreement."
     
 }
