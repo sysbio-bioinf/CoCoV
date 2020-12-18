@@ -87,13 +87,15 @@
    // height: 25%;
 }
 
-
 //Labels for summary tab
 .summary-header {
     font-family: Arial, Helvetica, sans-serif;
     vertical-align: middle;
     color:black;
     font-size: 25;
+    margin-top:5;
+    margin-bottom:5;
+    margin-left: 10;
     //font-weight: bold;
     // height: 25%;
 }
@@ -377,7 +379,15 @@
     margin-top:5;
     margin-bottom:5;
     margin-left: 10;
+}
 
+.summary-text {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0,0,0);
+    font-size: 20;
+    margin-top:5;
+    margin-bottom:5;
+    margin-left: 10;
 
 }
 
