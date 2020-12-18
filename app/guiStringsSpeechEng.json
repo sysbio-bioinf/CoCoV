@@ -8,7 +8,7 @@
     "injectionPainAnswer0": "No pain",
     "injectionPainAnswer1": "Yes, mild (normal activity)",
     "injectionPainAnswer2": "Yes, moderate (limited activity)",
-    "injectionPainAnswer3": "Yes, severe ( daily routine not possible)",
+    "injectionPainAnswer3": "Yes, severe (daily routine not possible)",
     "injectionPainAnswer4": "Emergency room visit",
  
     "rednessQuery": "Is there a redness at the injection site? (if yes, diameter)",
@@ -38,8 +38,8 @@
 
     "headacheQuery": "Do you have excessive headache?",
     "headacheAnswer0": "No",
-    "headacheAnswer1": "Yes, mild, <24 hours",
-    "headacheAnswer2": "Yes, > 24 hours",
+    "headacheAnswer1": "Yes, mild, lasting <24 hours",
+    "headacheAnswer2": "Yes, lasting >24 hours",
     "headacheAnswer3": "Yes, > 24 hours with painkiller",
     "headacheAnswer4": "Emergency room visit",
   
@@ -47,14 +47,14 @@
     "musclePainAnswer0": "No",
     "musclePainAnswer1": "Yes, mild pain",
     "musclePainAnswer2": "Yes, mild restriction of movement",
-    "musclePainAnswer3": "Yes, everyday activities not possible",
+    "musclePainAnswer3": "Yes, everyday activities are not possible",
     "musclePainAnswer4": "Emergency room visit",
  
     "jointPainQuery": "Do you have new or worsened joint pain?",
     "jointPainAnswer0": "No",
     "jointPainAnswer1": "Yes, mild pain",
     "jointPainAnswer2": "Yes, mild restriction of movement",
-    "jointPainAnswer3": "Yes, everyday activities not possible", 
+    "jointPainAnswer3": "Yes, everyday activities are not possible", 
     "jointPainAnswer4": "Emergency room visit",
 
     "vomitingQuery": "Did you have to vomit?",
@@ -65,7 +65,7 @@
     "vomitingAnswer4": "Emergency room visit",
 
     "diarrheaQuery": "Do you have diarrhea?",
-    "diarrheaAnswer0": "No or minor",
+    "diarrheaAnswer0": "No",
     "diarrheaAnswer1": "Yes, < 3 times in 24 hours",
     "diarrheaAnswer2": "Yes, 4 to 5 times in 24 hours",     
     "diarrheaAnswer3": "Yes, > 5 times in 24 hours",    
