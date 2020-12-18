@@ -42,6 +42,7 @@
     "diaryEmptyMessage": "No journal entries",
     "noIdMessage": "Patienten-ID ist nicht gesetzt",
     "patientIdHint": "ID",
+    "summaryLabel": "Summary",
     "diaryCommentHint": "Enter message",
     "saveButton": "save",
     "changeButton": "change",

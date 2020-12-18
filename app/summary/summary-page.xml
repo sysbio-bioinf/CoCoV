@@ -4,11 +4,11 @@
 </ActionBar>
     <GridLayout rows="auto,auto, auto" cols="*, *, *">
         <StackLayout row="0" col="0" colSpan="3" orientation="horizontal" width="100%" style="width:100%" class="controlbar">
-        <Button id="dateBackBtn" width="20%" text="{{ dateBackBtn }}" onTap="onBack" class="button text-left">
+        <Button id="dateBackBtn" text="{{ dateBackBtn }}" onTap="onBack" class="button text-left texyt-put-left switch-label">
         </Button>
-        <Label id="actionLabel" width="60%" text="{{ actionTabLabel }}" class="summary-header text-center">
+        <Label id="actionLabel" text="{{ actionTabLabel }}" width="75%" justifyContent="space-between" class="summary-header text-center">
         </Label>
-        <Button id="dateForwardBtn" width="20%" text="{{ dateForwardBtn }}" onTap="onForward" class="button text-right">
+        <Button id="dateForwardBtn" text="{{ dateForwardBtn }}" onTap="onForward" class="button text-right text-put-right switch-label">
         </Button>
         </StackLayout>
         <ScrollView row="1" col="0" colSpan="3" dock="right" id="summaryScrollView" scrollBarIndicatorVisible="false">

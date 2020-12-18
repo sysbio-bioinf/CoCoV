@@ -389,6 +389,16 @@
     padding-right: 4;
 }
 
+.text-put-left{
+    align-self: flex-start;
+    text-align: left;
+}
+
+
+.text-put-right{
+    align-self: flex-end;
+    text-align: right;
+}
 
 .weight-separator {
     margin-left: 10px; margin-right: 10px;

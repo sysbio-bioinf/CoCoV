@@ -1,9 +1,9 @@
 <Page class="page my-page" navigatingTo="onNavigatingTo" marginTop="30" navigatingFrom="onNavigatingFrom" loaded="onLoaded" unloaded="onUnloaded">
-    <ActionBar title="{{ overviewViewLabel }}">
+    <ActionBar title="{{ overviewViewLabel }}" class="switch-label">
     <NavigationButton text="{{ backButtonText }}" android.systemIcon="ic_menu_back" tap="backToHome"></NavigationButton>
     </ActionBar>
     <ScrollView id="summaryScrollView" class="transparent-area" height="99%">
-        <GridLayout id="overviewGrid"  rows="" cols="*" marginLeft="5" marginRight="5" class="transparent-area list-item">
+        <GridLayout id="overviewGrid"  rows="" cols="*" marginLeft="5" marginRight="5" class="transparent-area list-item switch-label">
         </GridLayout>  
     </ScrollView>
 </Page>

@@ -106,6 +106,7 @@
     "dateForwardBtn": "Nächster",
     "dateBackBtn": "Vorheriger",
     "accessionCodeLabel": "Code:",
+    "summaryLabel": "Zusammenfassung:",
     "dataDeletedAlert": "Daten wurden erfolgreich gelöscht.",
     "noDataToDisplay": "Keine Daten vorhanden",
     "confirmPreconditions": "Speichern"
