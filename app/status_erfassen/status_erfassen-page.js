@@ -104,7 +104,7 @@ function onNavigatingTo(args) {
 		appSettings.setString("healthRecord", JSON.stringify(vm.healthRecord));
 		vm.currentSlideNum = summaryIndex;
 
-		// console.log("Another entry today: " + appSettings.getString("healthRecord", "[]"));
+		console.log("Another entry today: " );
 		// //extract last entry
 		initSummary(vm, true);
 		// //go to summary slide
@@ -141,7 +141,7 @@ function onNavigatingTo(args) {
 						changeMode = appSettings.getBoolean("summaryChangeMode");
 					}
 					
-					initSummary(vm, changeMode);
+					initSummary(vm, true);
 				}
 			}
 		}
@@ -281,13 +281,13 @@ function switchTab(args) {
 	//set therapy specific settings of slides
 	var slideIdx = require('./slides/index');
 	var summaryIdx = slideIdx.names.length - 1;
-	console.log("Selected Tab: " + tabSelectedIndex);
 	if (tabSelectedIndex < summaryIdx)
 		vm.healthRecord[tabSelectedIndex + 1] = id;
 	else if (tabSelectedIndex === summaryIdx) {
 		vm.healthRecord[tabSelectedIndex + 1] = vm.notes + "";
 		appSettings.setString("healthRecord", JSON.stringify(vm.healthRecord));
-		initSummary(vm, false, tabSelectedIndex);
+		initSummary(vm, true, tabSelectedIndex);
+		
 		appSettings.setBoolean("completed", true);
 	}
 
@@ -310,7 +310,6 @@ function switchTab(args) {
 			}
 		}).catch(err => {
 			//notification
-			console.log(err);
 			var dialogs = require("tns-core-modules/ui/dialogs");
 			dialogs.alert(global.guiStrings[1]["connectionErrorAlert"]).then(function() {
 			});
@@ -324,7 +323,12 @@ function switchTab(args) {
 	
 	//jump back to summary if already completed
 	if (appSettings.getBoolean("completed") && tabSelectedIndex != summaryIdx) {
-		initSummary(vm, true, tabSelectedIndex);
+		initSummary(vm, true);
+		// initSummary(vm, true, tabSelectedIndex);
+		appSettings.setBoolean("completed", true);
+		if (appSettings.hasKey("summaryChangeMode")) {
+			appSettings.remove("summaryChangeMode");
+		}
 		vm.jumpToLast();
 	}
 	else {
@@ -345,26 +349,16 @@ function switchTab(args) {
 function goBack(page, index, fromOutside)
 {
 	let vm = page.bindingContext;
-	var view = page.getViewById("slide-content");
 	const idx = require("./slides/index");
 	vm.jumpToIdx(index);
-	var shortNames = idx.names;
+	
 	
 	vm.fromOutside = fromOutside;
 	
 	appSettings.setBoolean("summaryChangeMode", true);
-	// if (index!=(shortNames.length - 2))
-	// 	highlightSelectedButton(view, shortNames[index], vm.healthRecord[index + 1]);
-	// else
-	// 	set_comment(page, shortNames[index], vm.healthRecord[index + 1]);
 	
 	
-}
-
-function set_comment(page,questionName, text)
-{	const row = page.content.getViewById(questionName);
-	const element=row.getViewById("note");
-	element.text=text
+	
 }
 
 function backEvent(args) {
@@ -392,30 +386,6 @@ function switchBack(args) {
 	var page = args.object.page;
 	goBack(page,questionID, false);
    
-}
-
-/**
- * Highlight button of answer if question was previously answered 
- * Function is called when jumping back in questionary
- * @param {} view 
- * @param {*} questionName 
- * @param {*} buttonId 
- */
-function highlightSelectedButton(view, questionName, buttonId) {
-	
-	if (view) {
-		const row = view.content.getViewById(questionName);
-		if (row) {
-			//unset highlights
-			row.eachChildView(function(view) {view.borderWidth=0;});
-			let selectedButton = row.getViewById(buttonId);
-			
-			if (selectedButton && selectedButton.typeName == "Button") {
-				selectedButton.borderWidth = 4;
-				selectedButton.borderColor = "rgb(180,180,180)";
-			}
-		}
-	}
 }
 
 /**

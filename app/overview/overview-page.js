@@ -138,7 +138,6 @@ function onNavigatingTo(args) {
 	dbEntries = database.requestData(0);
 	var vm = args.object.bindingContext;
 	global.guiStringsLoaded.then(function(value) {
-		console.log("In here: " + true);
 		tools.bindGuiStrings(vm,0,tools.getAppSetting("languageID", "number"));
 	});
 }
