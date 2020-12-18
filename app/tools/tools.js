@@ -12,14 +12,14 @@ function loadGUIStrings() {
         stringFilesGer = ["guiStrings.json", "guiStringsGer.json", "guiStringsSpeechGer.json"];
         
         global.guiStringsGer = [];
-        stringFilesGer.forEach(fileName => {
+        stringFilesGer.forEach((fileName, idx, arry) => {
             
             const jsonFile = appFolder.getFile(fileName);
             jsonFile.readText()
                 .then(function (content) {
                     
                     try {
-                        global.guiStringsGer.push(JSON.parse(content));
+                        global.guiStringsGer[idx] = JSON.parse(content);
                         resolve(true);
                     } catch (err) {
                         console.log(err);
@@ -34,12 +34,12 @@ function loadGUIStrings() {
         stringFilesEng = ["guiStrings.json", "guiStringsEng.json", "guiStringsSpeechEng.json"];
         
         global.guiStringsEng = [];
-        stringFilesEng.forEach(fileName => {
+        stringFilesEng.forEach((fileName, idx, arry) => {
             const jsonFile = appFolder.getFile(fileName);
             jsonFile.readText()
                 .then(function (content) {
                     try {
-                        global.guiStringsEng.push(JSON.parse(content));
+                        global.guiStringsEng[idx] = JSON.parse(content);
                         resolve(true);
 
                     } catch (err) {
@@ -64,7 +64,6 @@ function loadGUIStrings() {
  */
 function bindGuiStrings(bindObject, stringFile, lang) {
     var guiStringsLang;
-    console.log(lang);
     
     if(lang==0){
         guiStringsLang=global.guiStringsEng;
@@ -667,6 +666,7 @@ function showDataDeletedAlert()
 function showNoDataAlert()
 {
     var dialogs = require("tns-core-modules/ui/dialogs");
+    console.log("Lengt of GUI Strings : " + global.guiStringsEng.length);
     return new Promise( (resolve, reject) => {
     dialogs.alert(global.guiStrings[1]["noDataToDisplay"]).then(function() {
         resolve(true);

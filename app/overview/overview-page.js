@@ -149,6 +149,15 @@ function onNavigatingFrom(args) {
 	const vm = page.bindingContext;
 }
 
+/**
+ * Function for software-based back button in android 
+ *
+ */
+function backToHome(args) {
+    
+    frameModule.topmost().navigate("home/home-page");
+
+}
 exports.onForward = onForward;
 exports.onBack = onBack;
 exports.onNavigatingTo = onNavigatingTo;
