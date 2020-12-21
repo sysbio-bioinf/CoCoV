@@ -8,11 +8,9 @@ function onNavigatingTo(args) {
     page.bindingContext = new PatientendatenViewModel();
     
     if(tools.getAppSetting("languageID", "number") === 0){
-        console.log("englisch")
         page.bindingContext.set("imprintHtml", "~/impressum/imprintENG.html");
     }
     else {
-        console.log("deutsch")
         page.bindingContext.set("imprintHtml", "~/impressum/imprintDE.html");
     }
 

@@ -25,8 +25,6 @@ function getSlides(currentTab) {
         var row = new ItemSpec(1, GridUnitType.STAR);
         slides.forEach((element, i) => {
             GridLayout.setColumn(element, 0);
-            var lab = element.getViewById("questionLabel");
-            console.log("Label : " + lab);
             if (i != currentTab)
             { 
                 //element.opacity = 0;

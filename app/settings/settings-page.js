@@ -95,9 +95,7 @@ function onNavigatingTo(args) {
     var vaccines = page.bindingContext.get("vaccinePickerItems");
     //load pre-set age if existing
     if (hasKey("userVaccine")) {
-        console.log(tools.getAppSetting("userVaccine","string"));
         var vaccines = page.bindingContext.get("vaccinePickerItems");
-        console.log(vaccines.indexOf(tools.getAppSetting("userVaccine","string")));
         const option = tools.getAppSetting("userVaccine","string");
         page.bindingContext.set("vaccineIndex", page.bindingContext.get("vaccinePickerItems").indexOf(option));
         

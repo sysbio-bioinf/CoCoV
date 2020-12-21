@@ -21,7 +21,6 @@ function onLoaded(args) {
     dbEntries.then(function (db) {
 		//screen database for all entries which are non-zero to find all adverse events occuring over time
 		var withEffect = hasEffect(db);
-		console.log("has effect : " + withEffect);
 		//add occured adverse events to summary list
 		var label;
 		var txt;

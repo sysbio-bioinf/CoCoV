@@ -15,11 +15,9 @@ function onNavigatingTo(args) {
         tools.bindGuiStrings(page.bindingContext,0,tools.getAppSetting("languageID", "number"));
         //load data security statemts based on selected language
         if(tools.getAppSetting("languageID", "number") === 0){
-            console.log("englisch")
             page.bindingContext.set("datasecHtml", "~/agreement/Patienteninformation_CoCoV_English.html");
         }
         else {
-            console.log("deutsch")
             page.bindingContext.set("datasecHtml", "~/agreement/Patienteninformation_CoCoV_German.html");
         }
     });
@@ -55,7 +53,6 @@ function sendAgreement(args) {
         page.bindingContext.set("isBusy", true);
         var agreement = page.getViewById("sendAgreement");
 
-        console.log(agreement);
         agreement.visibility = "hidden";
         return new Promise((resolve, reject) => {
             bcrypt.hash(password, salt, (err, hash) => {

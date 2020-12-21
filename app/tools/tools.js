@@ -22,11 +22,9 @@ function loadGUIStrings() {
                         global.guiStringsGer[idx] = JSON.parse(content);
                         resolve(true);
                     } catch (err) {
-                        console.log(err);
                         throw new Error('Could not parse JSON file');
                     }
                 }, function (error) {
-                    console.log(eror);
                     throw new Error('Could not read JSON file');
                 })
         });
@@ -43,11 +41,9 @@ function loadGUIStrings() {
                         resolve(true);
 
                     } catch (err) {
-                        console.log(err);
                         throw new Error('Could not parse JSON file');
                     }
                 }, function (error) {
-                    console.log(eror);
                     throw new Error('Could not read JSON file');
                 })
         });
@@ -550,11 +546,9 @@ function readTransmissionInfo(){
                 tools.setAppSetting("salt", "number", parseInt(secret["salt"]));
                 tools.setAppSetting("server", "string", secret["server"]);
             } catch (err) {
-                console.log(err);
                 throw new Error('Could not parse JSON file');
             }
         }, function (error) {
-            console.log(error);
             throw new Error('Could not read JSON file');
         })
 }
@@ -580,17 +574,12 @@ function transmitMasterData(withPreconditions)
      //check if predonditions were set
     if(tools.checkAppSetting("noPreconditions"))
     {
-        console.log(tools.getAppSetting("noPreconditions", "number"));
-        console.log(tools.getAppSetting("preconditionSwitch" + (idx+1), "boolean"));
         //aquire preconditions
         for(var idx = 0; idx < (tools.getAppSetting("noPreconditions", "number")); idx++)
         {
             data["data"]["preconditions"].push({"key" : preconditionNames[idx], "value" : tools.getAppSetting("preconditionSwitch" + (idx+1), "boolean")});
         }
     }
-    
-    console.log("Master data transmission  :" + JSON.stringify(data));
-    console.log(tools.getAppSetting("server", "string") + "/apikeys/" + tools.getAppSetting("UUID", "string") + "/metadata");
 
     fetch(tools.getAppSetting("server", "string") + "/apikeys/" + tools.getAppSetting("UUID", "string") + "/metadata", {
         method: "PUT",
@@ -605,7 +594,6 @@ function transmitMasterData(withPreconditions)
         
     }).catch((e) => {
         showCommunicationAlert();
-        console.log("Error in connection: " + e);
         reject(false);
 
     });
@@ -623,7 +611,6 @@ function transformData(dat)
     var date = new Date();
     date = date.toISOString();
     
-    console.log(tools.getAppSetting("userAge", "number"));
     var data = {
         "data": {
             "effects": effects,

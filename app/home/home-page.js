@@ -108,7 +108,6 @@ function onTapPlus(args) {
  * @param {*} args 
  */
 function onSettings(args){
-    console.log("DEUG: Go to settings");
     args.object.page.frame.navigate("settings/settings-page");
 }
 

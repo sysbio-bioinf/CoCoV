@@ -107,7 +107,6 @@ function onBack(args)
  */
 function initSummary(page, vm, data) {
 
-	console.log("DEBUG22222: Summary initiated");
 	//extract grid to fill :
 	var hRec = data;
 	var idx = require("../status_erfassen/slides/index.js");

@@ -105,7 +105,6 @@ function onNavigatingTo(args) {
 		appSettings.setString("healthRecord", JSON.stringify(vm.healthRecord));
 		vm.currentSlideNum = summaryIndex;
 
-		console.log("Another entry today: " );
 		// //extract last entry
 		initSummary(vm, true);
 		// //go to summary slide
@@ -184,7 +183,6 @@ function onNavigatingTo(args) {
  */
 function initSummary(bindingContext, switchBackFlag, slideNum) {
 
-	console.log("DEBUG: Summary initiated");
 	//extract grid to fill :
 	const hRec = JSON.parse(appSettings.getString("healthRecord", "[]"));
 	console.log(hRec);
