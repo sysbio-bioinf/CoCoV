@@ -33,15 +33,20 @@ function onLoaded(args) {
 			})
 		}
 		else{
+		var notToDisplay = ["vaccDose", "coronaTestDate", "coronaTestResult", "coronaTreatment", "event"];
 		withEffect.forEach((effect,index,arry) =>
 		{
-			container.addRow(new ItemSpec(index, GridUnitType.STAR));
+			//skip values without interest
+			if(notToDisplay.includes(effect))
+				return;
+
+			container.addRow(new ItemSpec(container.getRows().length, GridUnitType.STAR));
 			//create label for each adverse event occured
 			label = new labelModule.Label();
 			label.className = "my-overviewTest list-item";
 			//position new label
 			GridLayout.setColumn(label, 0);
-			GridLayout.setRow(label, index);
+			GridLayout.setRow(label, container.getRows().length - 1);
 			//adapt label text
 			txt = global.guiStrings[1][effect + "Short"];
 			txt = txt.slice(0,txt.lastIndexOf(":"));
