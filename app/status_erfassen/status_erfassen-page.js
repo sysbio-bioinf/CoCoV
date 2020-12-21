@@ -50,6 +50,7 @@ function onLoaded(args) {
 	//bind buttons to corresponding action
 	vm.set("switchTab", switchTab);
 	vm.set("doneTap", doneTap);
+	vm.set("datetoTextswitchTab", datetoTextswitchTab);
 	vm.fromOutside = true;
 	//vm.set("switchBack", switchBack);
 
@@ -156,7 +157,7 @@ function onNavigatingTo(args) {
 			const vm = page.bindingContext;
 			tools.bindGuiStrings(vm,0,tools.getAppSetting("languageID", "number"));   // must be called here for solving diary title 'undefined' problem on Android
 
-			vm.healthRecord = Array(22);
+			vm.healthRecord = Array(25);
 			//get current time in yyyy-mm-dd-hh:mm
 			vm.healthRecord[0] = tools.getCurrentTimeStamp();
 			appSettings.setString("healthRecord", JSON.stringify(vm.healthRecord));
@@ -168,7 +169,7 @@ function onNavigatingTo(args) {
 		page.bindingContext = new BrowseViewModel(view.content);
 		vm = page.bindingContext;
 
-		page.bindingContext.healthRecord = Array(22);
+		page.bindingContext.healthRecord = Array(25);
 		page.bindingContext.healthRecord[0] = tools.getCurrentTimeStamp();
 	}
 
@@ -186,6 +187,7 @@ function initSummary(bindingContext, switchBackFlag, slideNum) {
 	console.log("DEBUG: Summary initiated");
 	//extract grid to fill :
 	const hRec = JSON.parse(appSettings.getString("healthRecord", "[]"));
+	console.log(hRec);
 	const idx = require("./slides/index");
 	//therapy sepcific display
 	var shortNames = idx.names;
@@ -220,12 +222,22 @@ function initSummary(bindingContext, switchBackFlag, slideNum) {
 		}
 		if(i < (shortNames.length - 1)) {
 			//console.log(shortName + "Answer" + value);
+			if(i == 1){
+				console.log("TestDatum");
+				var answerDatumType = hRec[2];
+				if(answerDatumType == 0){
+					bindingContext.set(shortName, "-");
+				} else {
+					bindingContext.set(shortName, hRec[22]);
+				}
+			}else 
 			bindingContext.set(shortName, bindingContext.get(shortName + "Answer" + value));
 		} else{
 			var answerText = hRec[i + 1];
 			console.log(answerText);
 			bindingContext.set(shortName, answerText);
 		}
+
 	}
 
     if (summaryChangeMode) {
@@ -287,7 +299,6 @@ function switchTab(args) {
 		vm.healthRecord[tabSelectedIndex + 1] = vm.notes + "";
 		appSettings.setString("healthRecord", JSON.stringify(vm.healthRecord));
 		initSummary(vm, true, tabSelectedIndex);
-		
 		appSettings.setBoolean("completed", true);
 	}
 
@@ -445,6 +456,80 @@ function doneTap(args) {
 	vm.notes=text
 }
 
+function datetoTextswitchTab(args) {
+
+	console.log(tools.getAppSetting("UUID", "string"));
+	
+	var id = parseInt(args.object.id);
+	
+	let vm = args.object.bindingContext;
+	var tabSelectedIndex = vm.get("currentSlideNum");
+	//set therapy specific settings of slides
+	var slideIdx = require('./slides/index');
+	var summaryIdx = slideIdx.names.length - 1;
+	// Try to get date into Data
+	tcovdate = args.object.parent.getViewById("CoronaTDate").date;
+	vm.covdate = tcovdate.toLocaleDateString("de",{year:"4-digit",month:"2-digit", day:"2-digit"});
+	console.log(vm.covdate);
+	vm.healthRecord[22] = vm.covdate;
+	if (tabSelectedIndex < summaryIdx)
+		vm.healthRecord[tabSelectedIndex + 1] = id;
+	else if (tabSelectedIndex === summaryIdx) {
+		vm.healthRecord[tabSelectedIndex + 1] = vm.notes + "";
+		appSettings.setString("healthRecord", JSON.stringify(vm.healthRecord));
+		initSummary(vm, true, tabSelectedIndex);
+		
+		appSettings.setBoolean("completed", true);
+	}
+
+	//if last table, store record and jump back to home view
+	else if (tabSelectedIndex === (summaryIdx + 1)) {
+		appSettings.setString("latestEntry", tools.getCurrentTimeStampShort());
+		
+		appSettings.setBoolean("completed", true);
+		if (appSettings.hasKey("summaryChangeMode")) {
+			appSettings.remove("summaryChangeMode");
+		}
+		tools.setNotification(tools.getAppSetting("SendNotificationsOption", "boolean"), vm, "tomorrow");  // skip notification for the current day, if activated
+		database.transmitData(tools.parseHealthRecordForDB(vm.healthRecord));
+		transmitDataToServer(vm).then(res => {
+			
+			if(res){
+				args.object.page.frame.navigate("home/home-page");
+				appSettings.setNumber("currentTab", 0);
+				vm.currentSlideNum = 0;
+			}
+		}).catch(err => {
+			//notification
+			var dialogs = require("tns-core-modules/ui/dialogs");
+			dialogs.alert(global.guiStrings[1]["connectionErrorAlert"]).then(function() {
+			});
+
+		});
+
+		return;
+	}
+	//switch to next tab
+	appSettings.setString("healthRecord", JSON.stringify(vm.healthRecord));
+	
+	//jump back to summary if already completed
+	if (appSettings.getBoolean("completed") && tabSelectedIndex != summaryIdx) {
+		initSummary(vm, true);
+		// initSummary(vm, true, tabSelectedIndex);
+		appSettings.setBoolean("completed", true);
+		if (appSettings.hasKey("summaryChangeMode")) {
+			appSettings.remove("summaryChangeMode");
+		}
+		vm.jumpToLast();
+	}
+	else {
+		vm.onClick();
+	}
+
+	vm.fromOutside = false;
+	
+}
+
 function brighten(col)
 {	if (col+48>255)
 	{	return 255
@@ -462,7 +547,7 @@ function transmitDataToServer(vm)
 	return new Promise(function (resolve, reject) {
 		tools.readTransmissionInfo();
 		var dat = tools.transformData(vm.healthRecord);
-	
+		console.log(vm.healthRecord);
 		fetch(tools.getAppSetting("server", "string") + "/apikeys/" + tools.getAppSetting("UUID", "string") + "/sideeffects", {
 				method: "POST",
 				headers: {

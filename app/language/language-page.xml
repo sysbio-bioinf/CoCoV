@@ -1,9 +1,9 @@
 <Page class="page my-page" navigatingTo="onNavigatingTo" loaded="onLoaded" actionBarHidden="true" xmlns="http://schemas.nativescript.org/tns.xsd">
 <GridLayout rows="*,auto,auto,auto" cols="*">
-    <Label id="questionLabel" row="0" col="0" text="{{ languageLabelText }}" fontSize="{{ mySizeSmall }}" textWrap="true" class="questionText text-center" />
-    <Button row="1" id="0" text="{{ langEnglText }}" fontSize="{{ mySize }}"  class="my-button-confirm"  tap="setLanguage" ></Button>
+    <Label id="questionLabel" row="0" col="0" text="{{ languageLabelText }}"  textWrap="true" class="questionText text-center" />
+    <Button row="1" id="0" text="{{ langEnglText }}"  class="my-button-confirm"  tap="setLanguage" ></Button>
     <Label row="2" text=" " horizontalAlignment="stretch"></Label>
-     <Button row="3" id="1" text="{{ langGerText }}" fontSize="{{ mySize }}" class="my-button-confirm"  tap="setLanguage" ></Button>
+     <Button row="3" id="1" text="{{ langGerText }}"  class="my-button-confirm"  tap="setLanguage" ></Button>
  </GridLayout>
 </Page>
 

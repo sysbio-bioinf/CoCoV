@@ -4,6 +4,20 @@
     "vaccDoseAnswer1": "Zweite Impfdosis",
     "vaccDoseAnswer2": "Dritte Impfdosis",
 
+    "coronaTestResultQuery" : "Wie war Ihr Coronatest-Ergebnis?",
+    "coronaTestResultAnswer0" : "Positiv",
+    "coronaTestResultAnswer1" : "Negativ",
+    "coronaTestResultAnswer2" : "Bisher kein Test.",
+
+    "coronaTestDateQuery" : "Wurden Sie bereits auf das Corona-Virus getestet?",
+    "coronaTestDateAnswer0" : "Bisher kein Test.",
+    "coronaTestDate" : "Datum:",
+    "coronaTestDateAnswer1" : "Speichern",
+
+    "coronaTreatmentQuery" : "Wurden Sie aufgrund einer Corona-Virus-Infektion im Krankenhaus behandelt?",
+    "coronaTreatmentAnswer0" : "Ja",
+    "coronaTreatmentAnswer1" : "Nein",
+
     "injectionPainQuery": "Haben Sie Schmerzen an der Injektionsstelle?",
     "injectionPainAnswer0": "Nein",
     "injectionPainAnswer1": "Ja, leichte Einschränkungen (Alltagsaktivitäten normal)",

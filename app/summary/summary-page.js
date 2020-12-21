@@ -107,7 +107,7 @@ function onBack(args)
  */
 function initSummary(page, vm, data) {
 
-	console.log("DEBUG: Summary initiated");
+	console.log("DEBUG22222: Summary initiated");
 	//extract grid to fill :
 	var hRec = data;
 	var idx = require("../status_erfassen/slides/index.js");
@@ -124,8 +124,14 @@ function initSummary(page, vm, data) {
 	for (i = 0; i < shortNames.length - 1; i++) {
 		shortName = shortNames[i];
 		value = hRec[shortName];   // the health record has an additional first column
-		elem = page.getViewById(shortName + "Value");
-		elem.text = global.guiStrings[2][shortName + "Answer" + value];
+		// Set Date in CoronaTestDate
+		if(i == 1){
+			elem = page.getViewById(shortName + "Value");
+			elem.text = global.guiStrings[2][shortName + "Answer" + value];
+		} else {
+				elem = page.getViewById(shortName + "Value");
+				elem.text = global.guiStrings[2][shortName + "Answer" + value];
+		}
 	}
 	//set text in comment
 	var i = shortNames.length - 1;

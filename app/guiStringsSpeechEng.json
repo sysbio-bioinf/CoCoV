@@ -4,6 +4,20 @@
     "vaccDoseAnswer1": "Second vaccination dose",
     "vaccDoseAnswer2": "Third vaccination dose",
 
+    "coronaTestResultQuery" : "What was your Corona test result?",
+    "coronaTestResultAnswer0" : "positive",
+    "coronaTestResultAnswer1" : "negative",
+    "coronaTestResultAnswer2" : "no test",
+
+    "coronaTestDateQuery" : "When was your last Corona test?",
+    "coronaTestDateAnswer0" : "Never had one.",
+    "coronaTestDate" : "Date:",
+    "coronaTestDateAnswer1" : "Save",
+
+    "coronaTreatmentQuery" : "Have you been treated for Corona in a hospital?",
+    "coronaTreatmentAnswer0" : "Yes",
+    "coronaTreatmentAnswer1" : "No",
+
     "injectionPainQuery": "Do you have pain at the injection site?",
     "injectionPainAnswer0": "No pain",
     "injectionPainAnswer1": "Yes, mild (normal activity)",
