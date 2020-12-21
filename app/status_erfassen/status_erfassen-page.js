@@ -156,7 +156,7 @@ function onNavigatingTo(args) {
 			const vm = page.bindingContext;
 			tools.bindGuiStrings(vm,0,tools.getAppSetting("languageID", "number"));   // must be called here for solving diary title 'undefined' problem on Android
 
-			vm.healthRecord = Array(25);
+			vm.healthRecord = [];
 			//get current time in yyyy-mm-dd-hh:mm
 			vm.healthRecord[0] = tools.getCurrentTimeStamp();
 			appSettings.setString("healthRecord", JSON.stringify(vm.healthRecord));
@@ -168,7 +168,7 @@ function onNavigatingTo(args) {
 		page.bindingContext = new BrowseViewModel(view.content);
 		vm = page.bindingContext;
 
-		page.bindingContext.healthRecord = Array(25);
+		page.bindingContext.healthRecord = [];
 		page.bindingContext.healthRecord[0] = tools.getCurrentTimeStamp();
 	}
 
@@ -197,11 +197,31 @@ function initSummary(bindingContext, switchBackFlag, slideNum) {
 	} else if (switchBackFlag) {
 		summaryChangeMode = true;
 	}
-	
-	
-	for (i = 0; i < shortNames.length; i++) {
+		
+	for (i = 0; i < shortNames.length; i++) 
+	{ //stop before additional notes field
 		let shortName = shortNames[i];
 		let value = hRec[i + 1];   // the health record has an additional first column
+
+		//Get date 
+		if(i === 1){
+			if(value === 0) //no date -> no test
+				bindingContext.set(shortName, bindingContext.get(shortName + "Answer" + value));
+			else //test date
+				bindingContext.set(shortName, value);
+		}
+		// Get additional comment
+		else if(i === shortNames.length - 1)
+		{
+			var answerText = hRec[i + 1];
+			console.log(answerText);
+			bindingContext.set(shortName, answerText);
+		}
+		//go via answer by id
+		else{
+			bindingContext.set(shortName, bindingContext.get(shortName + "Answer" + value));
+		}
+		//set css styles -> (legacy code, is this required?)
 		if (summaryChangeMode) {
 			if (i === (shortNames.length - 1)) {
 				bindingContext.set(shortName + "SummaryCssClass", "-btn btn-primary my-button-summary my-button-gradX");
@@ -218,25 +238,13 @@ function initSummary(bindingContext, switchBackFlag, slideNum) {
 			bindingContext.set("saveButtonCurrent", bindingContext.get("saveButton"));
 			bindingContext.set("changeButtonSize", bindingContext.get("mySizeSummary"));
 		}
-		if(i < (shortNames.length - 1)) {
-			//console.log(shortName + "Answer" + value);
-			if(i == 1){
-				console.log("TestDatum");
-				var answerDatumType = hRec[2];
-				if(answerDatumType == 0){
-					bindingContext.set(shortName, "-");
-				} else {
-					bindingContext.set(shortName, hRec[22]);
-				}
-			}else 
-			bindingContext.set(shortName, bindingContext.get(shortName + "Answer" + value));
-		} else{
-			var answerText = hRec[i + 1];
-			console.log(answerText);
-			bindingContext.set(shortName, answerText);
-		}
-
+		
+			
 	}
+
+
+
+	
 
     if (summaryChangeMode) {
         bindingContext.set("switchBack", switchBack);
@@ -244,11 +252,11 @@ function initSummary(bindingContext, switchBackFlag, slideNum) {
         bindingContext.set("summaryFlexWrapBefore", "true");
         bindingContext.set("summaryFlexGrow", "0");   // switch off temporarily, needed to fix button height recalculattion on iOS
         bindingContext.set("summaryEventFlexWrapBefore", "true");
-        if (!hRec[11]) {
+        // if (!hRec[11]) {
             if (platformModule.isIOS) {
                 bindingContext.set("summaryEventFlexWrapBefore", "false");
             }
-        }
+        // }
         bindingContext.set("summaryFlexGrow", "1");  // switch on, needed to get buttons spanning the whole page width
     } else {
         bindingContext.set("switchBack", function () { });   // empty function, needed to override previous function
@@ -282,16 +290,29 @@ function onNavigatingFrom(args) {
  * @param {Button} args 
  */
 function switchTab(args) {
-	console.log(tools.getAppSetting("UUID", "string"));
-	
-	var id = parseInt(args.object.id);
-	
 	let vm = args.object.bindingContext;
+	var id = parseInt(args.object.id);
 	var tabSelectedIndex = vm.get("currentSlideNum");
+
+	console.log(tools.getAppSetting("UUID", "string"));
+	console.log(vm.healthRecord);
+	console.log(tabSelectedIndex);
 	//set therapy specific settings of slides
 	var slideIdx = require('./slides/index');
 	var summaryIdx = slideIdx.names.length - 1;
-	if (tabSelectedIndex < summaryIdx)
+	//special case : enter date for time of last corona test
+	if (tabSelectedIndex === 1)
+	{
+		
+		if( id === 3){ //if date was confirmed
+			var tcovdate = args.object.parent.getViewById("CoronaTDate").date;
+			vm.healthRecord[tabSelectedIndex + 1] = tcovdate.toLocaleDateString("de",{year:"4-digit",month:"2-digit", day:"2-digit"});
+		} 
+		else{ //set zero -> no test performed
+			vm.healthRecord[tabSelectedIndex + 1] = id;
+		}
+	}
+	else if (tabSelectedIndex < summaryIdx)
 		vm.healthRecord[tabSelectedIndex + 1] = id;
 	else if (tabSelectedIndex === summaryIdx) {
 		vm.healthRecord[tabSelectedIndex + 1] = vm.notes + "";
@@ -545,7 +566,8 @@ function transmitDataToServer(vm)
 	return new Promise(function (resolve, reject) {
 		tools.readTransmissionInfo();
 		var dat = tools.transformData(vm.healthRecord);
-		console.log(vm.healthRecord);
+		console.log(JSON.stringify(dat));
+		console.log("healthrecord before submission : " + vm.healthRecord);
 		fetch(tools.getAppSetting("server", "string") + "/apikeys/" + tools.getAppSetting("UUID", "string") + "/sideeffects", {
 				method: "POST",
 				headers: {
@@ -555,6 +577,7 @@ function transmitDataToServer(vm)
 				body: JSON.stringify(dat)
 			}).then((r) => r.json())
 			.then((response) => {
+				
 				if (response["data"]["createdAt"] != null) {
 					resolve(true);
 				} else {

@@ -280,7 +280,6 @@ function parseHealthRecordList(healthRecord) {
     shortNames.forEach((val, idx, array) => {
         record.push({"key": val, "value": healthRecord[idx+1]}); //shift to skip date
     })
-    record.push({"key": "CoronaTestDate", "value": healthRecord[22]});
     return record;
 }
 

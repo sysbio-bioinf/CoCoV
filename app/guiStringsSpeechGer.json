@@ -12,7 +12,7 @@
     "coronaTestDateQuery" : "Wurden Sie bereits auf das Corona-Virus getestet?",
     "coronaTestDateAnswer0" : "Bisher kein Test.",
     "coronaTestDate" : "Datum:",
-    "coronaTestDateAnswer1" : "Speichern",
+    "coronaTestDateAnswer1" : "Testdatum speichern",
 
     "coronaTreatmentQuery" : "Wurden Sie aufgrund einer Corona-Virus-Infektion im Krankenhaus behandelt?",
     "coronaTreatmentAnswer0" : "Ja",

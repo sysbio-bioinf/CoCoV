@@ -12,7 +12,7 @@
     "coronaTestDateQuery" : "When was your last Corona test?",
     "coronaTestDateAnswer0" : "Never had one.",
     "coronaTestDate" : "Date:",
-    "coronaTestDateAnswer1" : "Save",
+    "coronaTestDateAnswer1" : "Save date",
 
     "coronaTreatmentQuery" : "Have you been treated for Corona in a hospital?",
     "coronaTreatmentAnswer0" : "Yes",

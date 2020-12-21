@@ -125,8 +125,10 @@ function initSummary(page, vm, data) {
 		value = hRec[shortName];   // the health record has an additional first column
 		// Set Date in CoronaTestDate
 		if(i == 1){
+			console.log(hRec);
+			console.log(hRec[shortName]);
 			elem = page.getViewById(shortName + "Value");
-			elem.text = global.guiStrings[2][shortName + "Answer" + value];
+			elem.text = hRec[shortName];
 		} else {
 				elem = page.getViewById(shortName + "Value");
 				elem.text = global.guiStrings[2][shortName + "Answer" + value];
