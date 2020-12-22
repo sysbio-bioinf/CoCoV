@@ -50,7 +50,6 @@ function onLoaded(args) {
 	//bind buttons to corresponding action
 	vm.set("switchTab", switchTab);
 	vm.set("doneTap", doneTap);
-	vm.set("datetoTextswitchTab", datetoTextswitchTab);
 	vm.fromOutside = true;
 	//vm.set("switchBack", switchBack);
 
@@ -473,80 +472,6 @@ function doneTap(args) {
 	}
 	var vm = args.object.bindingContext;
 	vm.notes=text
-}
-
-function datetoTextswitchTab(args) {
-
-	console.log(tools.getAppSetting("UUID", "string"));
-	
-	var id = parseInt(args.object.id);
-	
-	let vm = args.object.bindingContext;
-	var tabSelectedIndex = vm.get("currentSlideNum");
-	//set therapy specific settings of slides
-	var slideIdx = require('./slides/index');
-	var summaryIdx = slideIdx.names.length - 1;
-	// Try to get date into Data
-	tcovdate = args.object.parent.getViewById("CoronaTDate").date;
-	vm.covdate = tcovdate.toLocaleDateString("de",{year:"4-digit",month:"2-digit", day:"2-digit"});
-	console.log(vm.covdate);
-	vm.healthRecord[22] = vm.covdate;
-	if (tabSelectedIndex < summaryIdx)
-		vm.healthRecord[tabSelectedIndex + 1] = id;
-	else if (tabSelectedIndex === summaryIdx) {
-		vm.healthRecord[tabSelectedIndex + 1] = vm.notes + "";
-		appSettings.setString("healthRecord", JSON.stringify(vm.healthRecord));
-		initSummary(vm, true, tabSelectedIndex);
-		
-		appSettings.setBoolean("completed", true);
-	}
-
-	//if last table, store record and jump back to home view
-	else if (tabSelectedIndex === (summaryIdx + 1)) {
-		appSettings.setString("latestEntry", tools.getCurrentTimeStampShort());
-		
-		appSettings.setBoolean("completed", true);
-		if (appSettings.hasKey("summaryChangeMode")) {
-			appSettings.remove("summaryChangeMode");
-		}
-		tools.setNotification(tools.getAppSetting("SendNotificationsOption", "boolean"), vm, "tomorrow");  // skip notification for the current day, if activated
-		database.transmitData(tools.parseHealthRecordForDB(vm.healthRecord));
-		transmitDataToServer(vm).then(res => {
-			
-			if(res){
-				args.object.page.frame.navigate("home/home-page");
-				appSettings.setNumber("currentTab", 0);
-				vm.currentSlideNum = 0;
-			}
-		}).catch(err => {
-			//notification
-			var dialogs = require("tns-core-modules/ui/dialogs");
-			dialogs.alert(global.guiStrings[1]["connectionErrorAlert"]).then(function() {
-			});
-
-		});
-
-		return;
-	}
-	//switch to next tab
-	appSettings.setString("healthRecord", JSON.stringify(vm.healthRecord));
-	
-	//jump back to summary if already completed
-	if (appSettings.getBoolean("completed") && tabSelectedIndex != summaryIdx) {
-		initSummary(vm, true);
-		// initSummary(vm, true, tabSelectedIndex);
-		appSettings.setBoolean("completed", true);
-		if (appSettings.hasKey("summaryChangeMode")) {
-			appSettings.remove("summaryChangeMode");
-		}
-		vm.jumpToLast();
-	}
-	else {
-		vm.onClick();
-	}
-
-	vm.fromOutside = false;
-	
 }
 
 function brighten(col)
