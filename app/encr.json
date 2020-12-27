@@ -1,6 +1,6 @@
 {
-    "secret": "LYK6YZj-pTUgJ!os0k5h-KAR6AtbqXLd",
-    "salt": "12",
-    "server": "https://takakazu.informatik.uni-ulm.de/ilococovmotiv"
+    "secret": "password dummy",
+    "salt": "8",
+    "server": "https://cocov-server-url.com"
 }
 
