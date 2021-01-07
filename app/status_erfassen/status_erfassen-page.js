@@ -214,7 +214,6 @@ function initSummary(bindingContext, switchBackFlag, slideNum) {
 		else if(i === shortNames.length - 1)
 		{
 			var answerText = hRec[i + 1];
-			console.log(answerText);
 			bindingContext.set(shortName, answerText);
 		}
 		//go via answer by id
@@ -241,11 +240,7 @@ function initSummary(bindingContext, switchBackFlag, slideNum) {
 		
 			
 	}
-
-
-
 	
-
     if (summaryChangeMode) {
         bindingContext.set("switchBack", switchBack);
         bindingContext.set("activateSwitchBack", deactivateSwitchBack);
